@@ -1,8 +1,8 @@
-## 2. Development Setup
+## 1. Development Setup
 
 The following steps will help you to configure your mac for Python development, automation, and command line use.
 
-### 2.1 Setup your Mac
+### 1.1 Setup your Mac
 
 You should install some command line tools, and configure your terminal and editor:
 
@@ -10,31 +10,7 @@ You should install some command line tools, and configure your terminal and edit
 - Setup your Mac [terminal and Zsh](https://hakkoda.atlassian.net/wiki/spaces/DQ/pages/23167067/03+Trick-out+Zsh)
 - Setup your Mac OS with [Visual Studio Code](https://hakkoda.atlassian.net/wiki/spaces/DQ/pages/56098886/05+Setup+Visual+Studio+Code+VS+Code)
 
-## 1. Setup Your Python Environment
-
-Setup Python for dbt use with Snowflake. Because dbt-core is currently compatible with Python versions from 3.8 - 3.11, we have setup the Capstone project to use Python 3.10, but feel free to install any version that is supported by dbt ([source](https://docs.getdbt.com/faqs/Core/install-python-compatibility)).
-
-``` shell
-brew install python@3.10 virtualenv
-```
-
-Create your Python virtual environment. (If you have used another Python version, please change the code below accordingly)
-
-``` shell
-# Setup a project python virtual environement
-virtualenv .dbt-env --python=python3.10
-```
-
-## 2. Activate Your Virtual Environment
-
-***Every time*** you open a new terminal, you will need to source your tundra Python environment. This will vary depending on whether you setup the environment globally or in your project folder:
-
-``` bash
-# Source your project environment
-source .dbt-env/bin/activate
-```
-
-## 4. Clone the Capstone Project Repository
+## 2. Clone the Capstone Project Repository
 
 Like all Hakkoda repos, the Capstone Project repo can only be access locally using SSH keys. If you haven't already setup SSH follow these steps or skip straight to the `git clone` command below.
 
@@ -108,11 +84,35 @@ cd Develop
 git clone git@github.com:Hakkoda1/dbt-pt-capstone-project.git
 ```
 
-## 3. All about Git
+## 3. Setup Your Python Environment
+
+Setup Python for dbt use with Snowflake. Because dbt-core is currently compatible with Python versions from 3.8 - 3.11, we have setup the Capstone project to use Python 3.10, but feel free to install any version that is supported by dbt ([source](https://docs.getdbt.com/faqs/Core/install-python-compatibility)).
+
+``` shell
+brew install python@3.10 virtualenv
+```
+
+Create your Python virtual environment. (If you have used another Python version, please change the code below accordingly)
+
+``` shell
+# Setup a project python virtual environement
+virtualenv .dbt-env --python=python3.10
+```
+
+## 4. Activate Your Virtual Environment
+
+***Every time*** you open a new terminal, you will need to source your tundra Python environment. This will vary depending on whether you setup the environment globally or in your project folder:
+
+``` bash
+# Source your project environment
+source .dbt-env/bin/activate
+```
+
+## 5. All about Git
 
 Git is an integral part of version control and CI/CD. It makes contributing to a project with multiple contributors extremely easy. Version control is essential and allows any project to move to any snapshot of time in the development history.
 
-### 3.1.Capstone Project  Git Workflow
+### 5.1.Capstone Project  Git Workflow
 
 Capstone Project uses the Simple Flow branching convention with a few types of branches:
 
@@ -139,7 +139,7 @@ graph BT;
     develop --> main;
 ```
 
-### 3.2 Learning Git
+### 5.2 Learning Git
 
 Here are some great resources:
 
@@ -152,7 +152,7 @@ Here are some great resources:
 
 ---
 
-### 3.3 Local vs Cloud
+### 5.3 Local vs Cloud
 
 Git is a ***distributed version control*** system and Github is a cloud service that provides a shared access. When you clone the repo locally you make a copy of our Hakkoda GitHub repo. A quick way to understand what is happening under the hood is to think of that as a copy of Github locally on your computer and another copy in the cloud.
 
@@ -160,26 +160,26 @@ Git is a ***distributed version control*** system and Github is a cloud service 
 - `git push` is a way to 'push' your local commits into the 'remote' or 'cloud' github so that other contributors can see these changes.
 - `git pull` is a way to download any other 'commits' or 'saves' from the github repo (that is in the cloud) to your local working tree. This allows you to get the latest version of what you are working on if others have contributed.
 
-### 3.4 Branching
+### 5.4 Branching
 
 - [Git Branches](https://www.atlassian.com/git/tutorials/using-branches)
 - [Git Pull Requests](https://www.atlassian.com/git/tutorials/making-a-pull-request)
 
-### 3.5 Commiting Changes
+### 5.5 Commiting Changes
 
 - [Git Add](https://www.atlassian.com/git/tutorials/saving-changes)
 
-### 3.6 Fetching / Merging / Pulling
+### 5.6 Fetching / Merging / Pulling
 
 - [Git Fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
 - [Git Merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
 - [Git Pull](https://www.atlassian.com/git/tutorials/syncing/git-pull)
 
-### 3.7 Fixing Changes
+### 5.7 Fixing Changes
 
 - [Undoing Commits & Changes](https://www.atlassian.com/git/tutorials/undoing-changes)
 
-### 3.8 Why Git?
+### 5.8 Why Git?
 
 - [Why Should I Use Git?](https://www.atlassian.com/git/tutorials/why-git)
 
