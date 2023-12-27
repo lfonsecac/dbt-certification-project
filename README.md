@@ -1,3 +1,19 @@
+# dbt Capstone Project
+The main goal of this project is to deliver the tools and practice required to pass the dbt Analytics Engineering Exam.
+
+## Scenario
+You're an Analytics Engineer recently hired by a boardgame publisher company with a mission statement to create the next big hit.
+To do that the company relies on your expertise to perform insights on the datasets available and build recommendations from it.
+
+### Data Model
+![Data Model Raw](./docs/images/data_model_raw.jpg "Data Model Raw")
+
+### Data Dictionary
+
+[Data Dictionary](./docs/data_dictionary.csv)
+
+---
+
 ## 1. Development Setup
 
 The following steps will help you to configure your mac for Python development, automation, and command line use.
@@ -108,11 +124,27 @@ virtualenv .dbt-env --python=python3.10
 source .dbt-env/bin/activate
 ```
 
+## 5. Setup dbt Project
+
+When you clone the repository the dbt project was already initialized, so you can skip the command `dbt init`.
+
+After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt_capstone_project:
+
+``` bash
+# Change to dbt_capstone_project folder
+ cd dbt_capstone_project/
+
+# Rename the file sample-profiles.yml to profiles.yml
+cp sample-profiles.yml profiles.yml
+```
+
+
+
 ## 5. All about Git
 
 Git is an integral part of version control and CI/CD. It makes contributing to a project with multiple contributors extremely easy. Version control is essential and allows any project to move to any snapshot of time in the development history.
 
-### 5.1.Capstone Project  Git Workflow
+### 5.1.Capstone Project Git Workflow
 
 Capstone Project uses the Simple Flow branching convention with a few types of branches:
 
