@@ -3,23 +3,6 @@ import snowflake.connector
 from datetime import datetime, timedelta
 import requests
 
-def create_or_replace_stage(conn, stage_name, database, schema):
-    cursor = conn.cursor()
-    try:
-        cursor.execute(f'USE DATABASE {database};')
-        cursor.execute(f'USE SCHEMA {schema};')
-
-        cursor.execute('''CREATE OR REPLACE FILE FORMAT csv_file_format
-                          TYPE = "CSV"
-                          FIELD_DELIMITER = "," 
-                          PARSE_HEADER = TRUE''')
-
-        cursor.execute(f"CREATE OR REPLACE STAGE {stage_name} "
-                       "FILE_FORMAT = (FORMAT_NAME = 'csv_file_format') "
-                       )
-    finally:
-        cursor.close()
-
 def upload_to_snowflake(file_path, stage_name):
     conn = snowflake.connector.connect(
         user=os.getenv("SNOWFLAKE_USER"),
@@ -30,11 +13,7 @@ def upload_to_snowflake(file_path, stage_name):
         schema="RAW"
     )
 
-    cursor = None  # Initialize cursor outside the try block
     try:
-        # Create or replace the Snowflake stage
-        create_or_replace_stage(conn, stage_name, conn.database, conn.schema)
-
         cursor = conn.cursor()
 
         # Put the CSV file into the Snowflake stage
@@ -61,7 +40,7 @@ if __name__ == "__main__":
             f.write(response.content)
 
         # Upload the CSV file to Snowflake
-        stage_name = "stage_csv"  # Update with your Snowflake stage name
+        stage_name = "rankings_boardgames"  # Update with your Snowflake stage name
         upload_to_snowflake(local_file_path, stage_name)
 
         # Clean up: Remove the local file
