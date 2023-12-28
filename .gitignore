@@ -2,3 +2,4 @@
 .vscode
 /.dbt-env
 /ingestion/*
+snowflake.log
