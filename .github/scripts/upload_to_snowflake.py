@@ -7,9 +7,14 @@ def create_or_replace_stage(conn, stage_name):
     try:
         cursor = conn.cursor()
 
+        cursor.execute(f'''CREATE OR REPLACE FILE FORMAT csv_file_format
+          TYPE = "CSV"
+          FIELD_DELIMITER = "," 
+          PARSE_HEADER = TRUE''')
+
         cursor.execute(f"CREATE OR REPLACE STAGE {stage_name} "
                        "FILE_FORMAT = (FORMAT_NAME = 'csv_file_format') "
-                       "COMPRESSION = NONE")
+                       )
 
     finally:
         cursor.close()
