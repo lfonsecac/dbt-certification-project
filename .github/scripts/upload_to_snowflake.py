@@ -3,9 +3,13 @@ import snowflake.connector
 from datetime import datetime, timedelta
 import requests
 
-def create_or_replace_stage(conn, stage_name):
+def create_or_replace_stage(conn, stage_name, database, schema):
     try:
         cursor = conn.cursor()
+
+        cursor.execute(f'USE DATABASE {database};')
+
+        cursor.execute(f'USE SCHEMA {schema};')
 
         cursor.execute(f'''CREATE OR REPLACE FILE FORMAT csv_file_format
           TYPE = "CSV"
@@ -31,7 +35,7 @@ def upload_to_snowflake(file_path, stage_name):
 
     try:
         # Create or replace the Snowflake stage
-        create_or_replace_stage(conn, stage_name)
+        create_or_replace_stage(conn, stage_name, database, schema)
 
         cursor = conn.cursor()
 
