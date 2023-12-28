@@ -35,7 +35,7 @@ def upload_to_snowflake(file_path, stage_name):
 
     try:
         # Create or replace the Snowflake stage
-        create_or_replace_stage(conn, stage_name, database, schema)
+        create_or_replace_stage(conn, stage_name, conn.database, conn.schema)
 
         cursor = conn.cursor()
 
