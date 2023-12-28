@@ -4,25 +4,19 @@ from datetime import datetime, timedelta
 import requests
 
 def create_or_replace_stage(conn, stage_name, database, schema):
-
-    print("Database: ", database)
-    print("Schema: ", schema)
+    cursor = conn.cursor()
     try:
-        cursor = conn.cursor()
-
         cursor.execute(f'USE DATABASE {database};')
-
         cursor.execute(f'USE SCHEMA {schema};')
 
-        cursor.execute(f'''CREATE OR REPLACE FILE FORMAT csv_file_format
-          TYPE = "CSV"
-          FIELD_DELIMITER = "," 
-          PARSE_HEADER = TRUE''')
+        cursor.execute('''CREATE OR REPLACE FILE FORMAT csv_file_format
+                          TYPE = "CSV"
+                          FIELD_DELIMITER = "," 
+                          PARSE_HEADER = TRUE''')
 
         cursor.execute(f"CREATE OR REPLACE STAGE {stage_name} "
                        "FILE_FORMAT = (FORMAT_NAME = 'csv_file_format') "
                        )
-
     finally:
         cursor.close()
 
@@ -36,6 +30,7 @@ def upload_to_snowflake(file_path, stage_name):
         schema="RAW"
     )
 
+    cursor = None  # Initialize cursor outside the try block
     try:
         # Create or replace the Snowflake stage
         create_or_replace_stage(conn, stage_name, conn.database, conn.schema)
@@ -45,8 +40,11 @@ def upload_to_snowflake(file_path, stage_name):
         # Put the CSV file into the Snowflake stage
         cursor.execute(f'PUT file://{file_path} @{stage_name}')
 
+    except snowflake.connector.errors.ProgrammingError as e:
+        print(f"Snowflake ProgrammingError: {e}")
     finally:
-        cursor.close()
+        if cursor:
+            cursor.close()
         conn.close()
 
 if __name__ == "__main__":
