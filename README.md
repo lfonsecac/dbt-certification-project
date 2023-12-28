@@ -13,7 +13,6 @@ To do that the company relies on your expertise to perform insights on the datas
 
 ### Data Dictionary
 
-
 [Data Dictionary](https://docs.google.com/spreadsheets/d/1W3oXg2I52cy2oLPJQz7Ah4a8TQGju9yByI57JWWFbEc/edit?usp=drive_link)
 
 ---
@@ -149,9 +148,7 @@ After that, you need to use the `sample-profiles.yml` template file to create yo
 cp sample-profiles.yml profiles.yml
 ```
 
-
-
-## 5. All about Git
+## 5. How to use Git on this Project
 
 Git is an integral part of version control and CI/CD. It makes contributing to a project with multiple contributors extremely easy. Version control is essential and allows any project to move to any snapshot of time in the development history.
 
@@ -167,7 +164,8 @@ Capstone Project uses the Simple Flow branching convention with a few types of b
       ``` bash
       git checkout develop
       git pull
-      git checkout -b feature_X
+      # In this scenario we should use the [feature_first-initial-last-name] structure to identify each member developing branch (ex: feature_fbalseiro)
+      git checkout -b feature_fbalseiro
       ```
 
 - **Long running branches (protected)**: branches that require pull requests to merge in changes
@@ -182,48 +180,11 @@ graph BT;
     develop --> main;
 ```
 
-### 5.2 Learning Git
+## 6. Project Challenges
 
-Here are some great resources:
+1. [Customize Profile Directory](./docs/challenges/01_customize_profile_directory.md)
+2. [Setup Environment Variables](./docs/challenges/02_env_profiles.md)
+3. [Add Sources](./docs/challenges/03_add_sources.md)
+4. [Testing and Documenting Sources](./docs/challenges/04_test_document_sources.md)
+5. [Add Staging Models](./docs/challenges/05_staging_models.md) 
 
-- [Intermediate Git (Video)](https://www.youtube.com/watch?v=Uszj_k0DGsg)
-- [Atlassian Git Documentation](https://www.atlassian.com/git)
-- [Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control)
-- [Syncing](https://www.atlassian.com/git/tutorials/syncing)
-- [Tutorials](https://www.atlassian.com/git/tutorials)
-- [Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
-
----
-
-### 5.3 Local vs Cloud
-
-Git is a ***distributed version control*** system and Github is a cloud service that provides a shared access. When you clone the repo locally you make a copy of our Hakkoda GitHub repo. A quick way to understand what is happening under the hood is to think of that as a copy of Github locally on your computer and another copy in the cloud.
-
-- `git commit` changes are ways to save your changes with history on your local computer. These are snapshots in time with the differences from the previous commit. These are incremental.
-- `git push` is a way to 'push' your local commits into the 'remote' or 'cloud' github so that other contributors can see these changes.
-- `git pull` is a way to download any other 'commits' or 'saves' from the github repo (that is in the cloud) to your local working tree. This allows you to get the latest version of what you are working on if others have contributed.
-
-### 5.4 Branching
-
-- [Git Branches](https://www.atlassian.com/git/tutorials/using-branches)
-- [Git Pull Requests](https://www.atlassian.com/git/tutorials/making-a-pull-request)
-
-### 5.5 Commiting Changes
-
-- [Git Add](https://www.atlassian.com/git/tutorials/saving-changes)
-
-### 5.6 Fetching / Merging / Pulling
-
-- [Git Fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
-- [Git Merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
-- [Git Pull](https://www.atlassian.com/git/tutorials/syncing/git-pull)
-
-### 5.7 Fixing Changes
-
-- [Undoing Commits & Changes](https://www.atlassian.com/git/tutorials/undoing-changes)
-
-### 5.8 Why Git?
-
-- [Why Should I Use Git?](https://www.atlassian.com/git/tutorials/why-git)
-
----
