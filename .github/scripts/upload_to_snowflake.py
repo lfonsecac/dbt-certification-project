@@ -16,6 +16,10 @@ def upload_to_snowflake(file_path, stage_name):
     try:
         cursor = conn.cursor()
 
+        cursor.execute(f'USE DATABASE {conn.database};')
+
+        cursor.execute(f'USE SCHEMA {conn.schema};')
+
         # Put the CSV file into the Snowflake stage
         cursor.execute(f'PUT file://{file_path} @{stage_name}')
 
