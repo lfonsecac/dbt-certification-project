@@ -4,6 +4,9 @@ from datetime import datetime, timedelta
 import requests
 
 def create_or_replace_stage(conn, stage_name, database, schema):
+
+    print("Database: ", database)
+    print("Schema: ", schema)
     try:
         cursor = conn.cursor()
 
