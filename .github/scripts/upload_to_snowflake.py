@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
         # Upload the CSV file to Snowflake
         stage_name = "RANKINGS_BOARDGAMES"  # Update with your Snowflake stage name
-        # upload_to_snowflake(local_file_path, stage_name)
+        upload_to_snowflake(local_file_path, stage_name)
         
         print("Local file: ", local_file_path)
 
