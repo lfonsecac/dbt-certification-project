@@ -44,10 +44,13 @@ if __name__ == "__main__":
             f.write(response.content)
 
         # Upload the CSV file to Snowflake
-        stage_name = "rankings_boardgames"  # Update with your Snowflake stage name
-        upload_to_snowflake(local_file_path, stage_name)
+        stage_name = "RANKINGS_BOARDGAMES"  # Update with your Snowflake stage name
+        # upload_to_snowflake(local_file_path, stage_name)
+        
+        print("Local file: ", local_file_path)
 
         # Clean up: Remove the local file
         os.remove(local_file_path)
     else:
         print(f"Failed to download CSV file. Status code: {response.status_code}")
+
