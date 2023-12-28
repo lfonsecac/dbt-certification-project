@@ -1,9 +1,8 @@
 name: Upload to Snowflake
 
 on:
-  push:
-    branches:
-      - develop
+  schedule:
+    - cron: '0 10 * * *'  # This schedule runs the workflow every day at 10:00AM UTC
 
 jobs:
   upload:

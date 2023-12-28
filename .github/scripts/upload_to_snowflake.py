@@ -25,6 +25,8 @@ def upload_to_snowflake(file_path, stage_name, user, password, account, warehous
         # Put the CSV file into the Snowflake stage
         cursor.execute(f'PUT file://{file_path} @{stage_name} AUTO_COMPRESS=FALSE;')
 
+        print(f"Succesfully uploaded {file_path} file into stage: {database}.{schema}.{stage_name}")
+
     except snowflake.connector.errors.ProgrammingError as e:
         print(f"Snowflake ProgrammingError: {e}")
     finally:
@@ -74,5 +76,6 @@ if __name__ == "__main__":
 
         # Clean up: Remove the local file
         os.remove(local_file_path)
+
     else:
         print(f"Failed to download CSV file. Status code: {response.status_code}")
