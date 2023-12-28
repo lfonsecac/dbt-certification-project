@@ -2,7 +2,10 @@
 The main goal of this project is to deliver the tools and practice required to pass the dbt Analytics Engineering Exam.
 
 ## Scenario
-You're an Analytics Engineer recently hired by a boardgame publisher company with a mission statement to create the next big hit.
+- You have been hired by a new company that wants to publish the next big hit of boardgame and needs your help to identify the factors to create this new boardgame, like:
+    - Countries with highest demand (based on number of reviews and positive reviews, what are the kind of games that users rank the best).
+    - Define metrics to calculate the average rating for each dimension (designers, categories, artists, mechanics)
+
 To do that the company relies on your expertise to perform insights on the datasets available and build recommendations from it.
 
 ### Data Model
@@ -10,42 +13,8 @@ To do that the company relies on your expertise to perform insights on the datas
 
 ### Data Dictionary
 
-|Table     |Column        |Description                                                                                    |Data type|Accepted Values|Required|Unique|Accepts null value?|
-|----------|--------------|-----------------------------------------------------------------------------------------------|---------|---------------|--------|------|-------------------|
-|Reviews   |User          |Username registered on boardgamegeek website                                                   |varchar  |n/a            |y       |n     |n                  |
-|Reviews   |Rating        |number from 1-10 to rate the boardgame (integer)                                               |integer  |1-10           |y       |n     |n                  |
-|Reviews   |Id            |Boardgame unique identifier                                                                    |integer  |n/a            |y       |n     |n                  |
-|Users     |Users         |Username registered on boardgamegeek website                                                   |varchar  |n/a            |y       |y     |n                  |
-|Users     |Url           |Url from that user                                                                             |varchar  |n/a            |y       |y     |n                  |
-|Users     |Country       |country where the user was born                                                                |varchar  |n/a            |n       |n     |y                  |
-|Rankings  |Rank          |number representing the ranking of the boardgame (lower the better)                            |integer  |n/a            |y       |y     |n                  |
-|Rankings  |Id            |Boardgame unique identifier                                                                    |integer  |n/a            |y       |y     |n                  |
-|Rankings  |Date          |date on (YYYY-MM-DD) format                                                                    |         |               |        |      |                   |
-|Boardgames|Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
-|Boardgames|Name          |Name of the Boardgame                                                                          |         |               |        |      |                   |
-|Boardgames|Type          |Type of game (ex: boardgame)                                                                   |         |               |        |      |                   |
-|Boardgames|Rating        |average from all the ratings from the reviews (min: 1 - max: 10)                               |         |               |        |      |                   |
-|Boardgames|Weight        |average complexity rating from the users (min: 1 - max: 5)                                     |         |               |        |      |                   |
-|Boardgames|Year_Published|year the boardgame was published                                                               |         |               |        |      |                   |
-|Boardgames|Min_Players   |minimum number of players supported by the boardgame                                           |         |               |        |      |                   |
-|Boardgames|Max_Players   |maximum number of players supported by the boardgame                                           |         |               |        |      |                   |
-|Boardgames|Min_Play_Time |minimum playtime estimated to play the boardgame                                               |         |               |        |      |                   |
-|Boardgames|Max_Play_Time |maximum playtime estimated to play the boardgame                                               |         |               |        |      |                   |
-|Boardgames|Min_Age       |minimum age recommended to play the boardgame                                                  |         |               |        |      |                   |
-|Boardgames|Owned_By      |number of people that own the boardgame                                                        |         |               |        |      |                   |
-|Artists   |Artists       |Name of the artists responsible for the art and graphical design of the boardgame              |         |               |        |      |                   |
-|Artists   |Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
-|Categories|Categories    |Name of the categories that each boardgame belongs                                             |         |               |        |      |                   |
-|Categories|Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
-|Designers |Designers     |Name of the designers responsible for the mechanics and concept implementation of the boardgame|         |               |        |      |                   |
-|Designers |Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
-|Mechanics |Mechanics     |Name of the mechanics that each boardgame delivers                                             |         |               |        |      |                   |
-|Mechanics |Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
-|Publishers|Publishers    |Name of the publishers that support the distribution of the boardgames                         |         |               |        |      |                   |
-|Publishers|Game_Id       |Boardgame unique identifier                                                                    |         |               |        |      |                   |
 
-
-[Data Dictionary](./docs/data_dictionary.csv)
+[Data Dictionary](https://docs.google.com/spreadsheets/d/1W3oXg2I52cy2oLPJQz7Ah4a8TQGju9yByI57JWWFbEc/edit?usp=drive_link)
 
 ---
 
@@ -152,14 +121,21 @@ virtualenv .dbt-env --python=python3.10
 
 ## 4. Activate Your Virtual Environment
 
-***Every time*** you open a new terminal, you will need to source your tundra Python environment. This will vary depending on whether you setup the environment globally or in your project folder:
+***Every time*** you open a new terminal, you will need to source your Capstone Project Python environment:
 
 ``` bash
 # Source your project environment
 source .dbt-env/bin/activate
 ```
 
-## 5. Setup dbt Project
+## 5. Install Python packages required
+Run the following command to install the required Python packages for the project:
+
+``` bash
+pip install -r requirements.txt
+```
+
+## 6. Setup dbt Project
 
 When you clone the repository the dbt project was already initialized, so you can skip the command `dbt init`.
 
