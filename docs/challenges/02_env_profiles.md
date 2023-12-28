@@ -19,3 +19,16 @@ export DBT_USER=<user>
 ```
 
 - Execute the command `dbt debug` to check if dbt can commmunicate properly with the data platform (Snowflake)
+
+### Alternative approach: use `.env`
+Other approach that is used on projects on USFoods is to define the environment variables inside a `.env` file on the root folder of your dbt project.
+
+- Rename the `sample-env` file to `.env`
+- Execute the command on your terminal
+ ``` bash
+source .env
+```
+- Execute the command `dbt debug` to check if dbt can commmunicate properly with the data platform (Snowflake)
+
+---
+**Note:** In both scenarios you will have to execute the respective command every time you login again on your development environment.
