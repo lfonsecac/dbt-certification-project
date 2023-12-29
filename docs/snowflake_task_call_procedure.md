@@ -3,7 +3,7 @@
 ```sql
 create or replace task RANKINGS_LOAD_TASK
 	warehouse=DBT_CAPSTONE_PROJECT_WH
-	schedule='USING CRON 0 11 * * * UTC'
+	schedule='USING CRON 15 10 * * * UTC'
 	as CALL load_data_from_stage('BOARDGAME', 'RAW', 'RANKINGS_BOARDGAMES');
 ```
 

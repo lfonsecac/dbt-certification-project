@@ -9,7 +9,8 @@ The main goal of this project is to deliver the tools and practice required to p
 To do that the company relies on your expertise to perform insights on the datasets available and build recommendations from it.
 
 ### Data Model
-![Data Model Raw](./docs/images/data_model_raw.jpg "Data Model Raw")
+
+[Data Model](https://miro.com/app/board/uXjVN-3i7mo=/?moveToWidget=3458764574304978327&cot=14)
 
 ### Data Dictionary
 
@@ -182,9 +183,10 @@ graph BT;
 
 ## 6. Project Challenges
 
-1. [Customize Profile Directory](./docs/challenges/01_customize_profile_directory.md)
-2. [Setup Environment Variables](./docs/challenges/02_env_profiles.md)
-3. [Add Sources](./docs/challenges/03_add_sources.md)
-4. [Testing and Documenting Sources](./docs/challenges/04_test_document_sources.md)
+1. [Customize Profile Directory](./docs/challenges/01_customize_profile_directory/01_customize_profile_directory.md)
+2. [Setup Environment Variables](./docs/challenges/02_env_profiles/02_env_profiles.md)
+3. [Add Sources](./docs/challenges/03_add_sources/03_add_sources.md)
+4. [Testing and Documenting Sources](./docs/challenges/04_test_document_sources/04_test_document_sources.md)
+5. [Add Snapshot](./docs/challenges/05_add_snapshot/)
 5. [Add Staging Models](./docs/challenges/05_staging_models.md) 
 
