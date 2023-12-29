@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: boardgame
+    database: boardgame  
+    schema: raw  
+    tables:
+      - name: artists
+      - name: boardgames
+        columns:
+          - name: game_id
+            tests:
+              - unique
+              - not_null
+          - name: type
+            tests:
+              - accepted_values:
+                  values: [bgsleeve, boardgame, boardgameaccessory, boardgameexpansion, boardgameissue]
+      - name: categories
+      - name: designers
+      - name: mechanics
+      - name: publishers
+      - name: rankings
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: Rank
+            quote: true
+            tests:
+              - unique
+              - not_null
+      - name: reviews
+        columns:
+          - name: rating
+            tests:
+              - not_null
+      - name: users
+        columns:
+          - name: users
+            tests:
+              - unique
+              - not_null
+          - name: url
+            tests:
+              - unique
+              - not_null
