@@ -32,3 +32,7 @@ source .env
 
 ---
 **Note:** In both scenarios you will have to execute the respective command every time you login again on your development environment.
+
+---
+
+[Return to Project Challenges](../../README.md#6-project-challenges)

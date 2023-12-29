@@ -30,3 +30,7 @@ Execute again this command to confirm the `profiles.yml` location:
  ``` bash
 $ dbt debug --config-dir
 ```
+
+---
+
+[Return to Project Challenges](../../README.md#6-project-challenges)

@@ -47,11 +47,43 @@ To run tests on one source (and all of its tables):
 ```bash
 dbt test --select source:boardgame.reviews
 ``` 
-
-**Note:** To implement the tests on the `rank` column from the `Rankings` we have to activate a property called `quote` to enable quoting for the column name. That happens because `rank` is a reserved SQL expression so it has to be quoted so Snowflake can interpret the expression as a column name.   
+#### Issues that may occur
+**Note:** For some of the columns from the `Rankings` we have to activate a property called `quote` to enable quoting for those column names. That happens either because we are using reserved SQL expression names (like `rank`) or column names with spaces so it has to be quoted so Snowflake can interpret the expressions as a column name correctly.   
 You can find more information here: [dbt docs.](https://docs.getdbt.com/reference/resource-properties/quote)
+
+When you are running the tests if you get an error like the one below `invalid identifier 'NAME'`, is likely to be a problem on column name syntax that is being interpreted by Snowflake.
+
+```bash
+12:54:37    Database Error in test source_not_null_boardgame_rankings_Name (models/staging/_boardgames__sources.yml)
+  000904 (42000): SQL compilation error: error line 12 at position 7
+  invalid identifier 'NAME'
+  compiled Code at target/run/dbt_capstone_project/models/staging/_boardgames__sources.yml/source_not_null_boardgame_rankings_Name.sql
+12:54:37  
+12:54:37  Done. PASS=10 WARN=0 ERROR=1 SKIP=0 TOTAL=11
+```
+
+It is a best practice to validate the compiled code mentioned on the error message above to dig deeper into the issue.
+Here is the compile code below, and you can try to copy and paste that into Snowsight and check if you get the same error and figure out a way to solve the issue.
+
+```sql
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+select Name
+from boardgame.raw.rankings
+where Name is null
+
+    ) dbt_internal_test
+```
 
 ---
 
 ### Solution
 [_boardgames__sources.yml](./staging/_boardgames__sources.yml)
+
+---
+
+[Return to Project Challenges](../../README.md#6-project-challenges)
