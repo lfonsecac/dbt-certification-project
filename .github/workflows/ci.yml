@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload:
+  ci-workflow:
     runs-on: ubuntu-latest
     env:
       DBT_USER: ${{ secrets.DBT_USER }}
@@ -26,4 +26,4 @@ jobs:
         run: pip3 install dbt-snowflake
 
       - name: Deploy & Test Models
-        run: dbt build --profiles-dir . --target ci
+        run: dbt build --profiles-dir ./dbt_finished_project/ --target ci
