@@ -10,7 +10,10 @@ final as (
 
     select
         game_id as boardgame_id,
-        publishers as publisher_name
+        case
+            when publishers = '0' then 'Unknown'
+            else publishers
+        end as publisher_name
 
     from publishers
 

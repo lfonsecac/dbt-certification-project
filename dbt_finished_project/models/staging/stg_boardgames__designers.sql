@@ -10,7 +10,10 @@ final as (
 
     select
         game_id as boardgame_id,
-        designers as designer_name
+        case
+            when designers = '0' then 'Unknown'
+            else designers
+        end as designer_name
 
     from designers
 
