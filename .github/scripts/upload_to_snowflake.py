@@ -40,7 +40,7 @@ def process_csv(file_path):
 
     # Add a new column with the date in the format YYYY-MM-DD
     yesterday = datetime.now() - timedelta(days=1)
-    df['updated_at'] = yesterday
+    df['updated_at'] = datetime.now()
 
     # Save the DataFrame back to the CSV file
     df.to_csv(file_path, index=False)

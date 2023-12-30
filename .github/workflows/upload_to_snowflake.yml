@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 10 * * *'  # This schedule runs the workflow every day at 10:00AM UTC
 
+  workflow_dispatch:
+
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -32,3 +34,9 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
           SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+
+      - name: Install dbt
+        run: pip3 install dbt-snowflake
+
+      - name: Deploy & Test Models
+        run: dbt build --profiles-dir .
