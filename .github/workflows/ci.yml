@@ -12,6 +12,7 @@ jobs:
     env:
       DBT_USER: ${{ secrets.DBT_USER }}
       DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+      DBT_PROFILES_DIR: ${{ github.workspace }}
 
     steps:
       - name: Checkout repository
@@ -26,4 +27,7 @@ jobs:
         run: pip3 install dbt-snowflake
 
       - name: Deploy & Test Models
-        run: dbt build --profiles-dir ./dbt_finished_project/ --target ci
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
+          dbt build --target ci
