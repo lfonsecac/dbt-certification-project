@@ -12,7 +12,7 @@ jobs:
     env:
       DBT_USER: ${{ secrets.DBT_USER }}
       DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
-      DBT_PROFILES_DIR: ${{ github.workspace }}
+      DBT_PROFILES_DIR: /home/runner/work/dbt-pt-capstone-project/dbt-pt-capstone-project/dbt_finished_project/
 
     steps:
       - name: Checkout repository
@@ -29,5 +29,5 @@ jobs:
       - name: Deploy & Test Models
         run: |
           echo ${{ github.workspace }}
-          echo $GITHUB_WORKSPACE
+          echo $DBT_PROFILES_DIR
           dbt build --target ci
