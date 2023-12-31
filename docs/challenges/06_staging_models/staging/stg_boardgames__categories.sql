@@ -10,7 +10,10 @@ final as (
 
     select
         game_id as boardgame_id,
-        categories as category_name
+        case
+            when categories = '0' then 'Unknown'
+            else categories
+        end as category_name
 
     from categories
 

@@ -39,4 +39,4 @@ Feel free to change the `target_schema` and add a `target_database` parameter to
 
 ---
 
-[Return to Project Challenges](../../README.md#6-project-challenges)
+[Return to Project Challenges](../../../README.md#6-project-challenges)
