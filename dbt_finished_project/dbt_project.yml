@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'boardgame_project'
+profile: 'boardgame_project_finished'
 
 # Define variables here
 vars:
