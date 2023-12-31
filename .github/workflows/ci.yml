@@ -28,6 +28,5 @@ jobs:
 
       - name: Deploy & Test Models
         run: |
-          echo ${{ github.workspace }}
-          echo $DBT_PROFILES_DIR
+          cd dbt_finished_project
           dbt build --target ci
