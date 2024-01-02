@@ -14,6 +14,8 @@ final as (
         case
             when trim(country) is NULL then 'Unknown'
             when trim(country) = 'NA' then 'Unknown'
+            when country = '
+'   then 'Unknown' 
             else trim(country)
         end as country_name
 

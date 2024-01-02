@@ -20,7 +20,7 @@ Because these CSV files are located in your dbt repository, they are version con
 - Loading raw data that has been exported to CSVs
 - Any kind of production data containing sensitive information. For example personal identifiable information (PII) and passwords.
 
-### Task: Create a country codes table
+### Task: Create a country codes table and a reference table to translate country names from users to country codes table
 
 In this scenario, we're going to use a list of mappings of country codes to country names using this [file](/Users/filipebalseiro/Downloads/projects/dbt-pt-capstone-project/docs/challenges/07_add_seeds/country_codes.csv).
 
@@ -61,6 +61,8 @@ dbt seed --select country_codes+
 ```
 
 You can check [dbt docs](https://docs.getdbt.com/docs/build/seeds) for more details.
+
+Create also a `seed` for the reference table to translate the country names on the users table to country_codes table: [csv file](./country_codes_user_reference.csv)
 
 ---
 
