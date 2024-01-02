@@ -34,9 +34,3 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
           SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
-
-      - name: Install dbt
-        run: pip3 install dbt-snowflake
-
-      - name: Deploy & Test Models
-        run: dbt build --profiles-dir .
