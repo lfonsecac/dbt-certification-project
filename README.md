@@ -218,5 +218,7 @@ graph BT;
 3. [Add Sources](./docs/challenges/03_add_sources/03_add_sources.md)
 4. [Testing and Documenting Sources](./docs/challenges/04_test_document_sources/04_test_document_sources.md)
 5. [Add Snapshot](./docs/challenges/05_add_snapshot/05_add_snapshot.md)
-6. [Add Staging Models](./docs/challenges/06_staging_models/06_staging_models.md) 
+6. [Add Staging Models](./docs/challenges/06_staging_models/06_staging_models.md)
+7. [Add Seeds](./docs/challenges/07_add_seeds/07_add_seeds.md)
+7.1. [Add Seeds: Custom Schema Name](./docs/challenges/07_add_seeds/07_add_seeds_custom_schema.md) 
 

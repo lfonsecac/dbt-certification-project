@@ -52,4 +52,4 @@ You can check [dbt docs](https://docs.getdbt.com/docs/build/custom-schemas) for 
 
 ---
 
-[Return to Project Challenges](../../README.md#6-project-challenges)
+[Return to Project Challenges](../../../README.md#9-project-challenges)
