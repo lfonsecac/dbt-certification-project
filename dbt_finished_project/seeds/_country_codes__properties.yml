@@ -1,0 +1,14 @@
+version: 2
+
+seeds:
+  - name: country_codes
+    description: A mapping of three letter country codes to country names
+    columns:
+      - name: country_code
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        tests:
+          - unique
+          - not_null

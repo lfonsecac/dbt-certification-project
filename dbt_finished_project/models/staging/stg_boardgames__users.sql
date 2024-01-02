@@ -11,7 +11,11 @@ final as (
     select
         users as user_username,
         url as user_url,
-        country as user_country
+        case
+            when trim(country) is NULL then 'Unknown'
+            when trim(country) = 'NA' then 'Unknown'
+            else trim(country)
+        end as country_name
 
     from users
 
