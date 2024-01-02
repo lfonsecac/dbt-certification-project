@@ -21,7 +21,7 @@ final as (
         updated_at,
         dbt_valid_from as valid_from,
         coalesce(
-            date(dbt_valid_to),
+            dbt_valid_to,
             cast( '{{ var("the_distant_future") }}' as timestamp)
         ) as valid_to
 

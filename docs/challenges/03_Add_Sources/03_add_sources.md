@@ -35,5 +35,5 @@ Using the example above you should create the sources file following the [style 
 
 ---
 
-[Return to Project Challenges](../../../README.md#6-project-challenges)
+[Return to Project Challenges](../../../README.md#9-project-challenges)
 

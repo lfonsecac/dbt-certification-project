@@ -38,3 +38,9 @@ models:
   dbt_capstone_project:
     staging:
       +materialized: view
+
+seeds:
+  dbt_capstone_project:
+    +column_types:
+      country_name: varchar(100)
+      country_code: varchar(3)

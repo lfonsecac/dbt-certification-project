@@ -3,3 +3,4 @@
 /.dbt-env
 /ingestion/*
 snowflake.log
+target

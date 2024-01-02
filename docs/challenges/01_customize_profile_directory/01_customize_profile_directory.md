@@ -33,4 +33,4 @@ $ dbt debug --config-dir
 
 ---
 
-[Return to Project Challenges](../../../README.md#6-project-challenges)
+[Return to Project Challenges](../../../README.md#9-project-challenges)
