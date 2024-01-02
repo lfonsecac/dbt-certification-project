@@ -149,11 +149,41 @@ After that, you need to use the `sample-profiles.yml` template file to create yo
 cp sample-profiles.yml profiles.yml
 ```
 
-## 5. How to use Git on this Project
+## 7. Install dbt Power Extension for VSCode
+
+dbt Power User extension is a great tool to bring a similar experience to dbt Cloud version using dbt-core on VSCode.
+
+Below are listed the features that this extension provides:
+
+- Setting up the dbt Power User extension
+- Column Level Lineage
+- dbt query data results preview with file export and analysis
+- Generate dbt models from source files or SQL queries
+- Generate model and column descriptions
+- Click to execute parent/child models and tests
+- Query explanations for complex dbt models
+
+Follow the video below on a step-by-step tutorial on how to install.
+
+[Tutorial Installation](https://www.loom.com/share/9eb5eac5bb3b4e11a34941af4ae9e686)
+
+Below there are a couple of additional videos with useful information on how to setup and take advantage of the features from dbt Power User extension.
+
+**Note:** Those are from the dbt Zero to Hero Udemy course that is part of the learning path for the dbt Analytics Engineering Certification Exam.
+
+- [How to get an API Key for the Advanced Features](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657702#overview)
+- [Use AI to Generate Documenation](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657714#overview)
+- [Generate dbt Model from Source Definition or SQL](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657718#overview)
+- [Working with Column-Level Lineage](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657724#overview)
+- [Find Problems in your dbt Project with Health Check](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657748#overview)
+- [Use AI to Interpret Queries via Query Explanations](https://hakkoda.udemy.com/course/complete-dbt-data-build-tool-bootcamp-zero-to-hero-learn-dbt/learn/lecture/40657752#overview)
+
+
+## 8. How to use Git on this Project
 
 Git is an integral part of version control and CI/CD. It makes contributing to a project with multiple contributors extremely easy. Version control is essential and allows any project to move to any snapshot of time in the development history.
 
-### 5.1.Capstone Project Git Workflow
+### 8.1.Capstone Project Git Workflow
 
 Capstone Project uses the Simple Flow branching convention with a few types of branches:
 
@@ -181,7 +211,7 @@ graph BT;
     develop --> main;
 ```
 
-## 6. Project Challenges
+## 9. Project Challenges
 
 1. [Customize Profile Directory](./docs/challenges/01_customize_profile_directory/01_customize_profile_directory.md)
 2. [Setup Environment Variables](./docs/challenges/02_env_profiles/02_env_profiles.md)
