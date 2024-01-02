@@ -222,4 +222,4 @@ graph BT;
 7. [Add Seeds](./docs/challenges/07_add_seeds/07_add_seeds.md)
 7.1. [Add Seeds: Custom Schema Name](./docs/challenges/07_add_seeds/07_add_seeds_custom_schema.md) 
 8. [Add Source Freshness](./docs/challenges/08_add_source_freshness/08_add_source_freshness.md)
-
+9. [Add Singular Test](./docs/challenges/09_add_singular_test/09_add_singular_test.md)

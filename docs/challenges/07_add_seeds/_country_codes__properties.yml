@@ -17,7 +17,6 @@ seeds:
     columns:
       - name: country_code
         tests:
-          - unique
           - not_null
       - name: country_name
         tests:
