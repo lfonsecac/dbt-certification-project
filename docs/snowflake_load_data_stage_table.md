@@ -3,7 +3,8 @@
 ```sql
 CREATE OR REPLACE PROCEDURE load_data_from_stage(
     database_dest STRING, 
-    schema_dest STRING
+    schema_dest STRING,
+    stage_name STRING
 )
 RETURNS STRING
 LANGUAGE PYTHON
@@ -21,20 +22,11 @@ from datetime import timedelta, date, datetime
 import pandas as pd
 
 
-def load_data(session: snowpark.Session, database_dest, schema_dest):
-
-    stage_name = 'ranking_boardgames'
+def load_data(session: snowpark.Session, database_dest, schema_dest, stage_name):
 
     # Set the destination database and schema
     session.sql(f"USE DATABASE {database_dest};").collect()
     session.sql(f"USE SCHEMA {schema_dest};").collect()
-
-    # Create an internal stage
-    session.sql(f""" 
-        CREATE STAGE IF NOT EXISTS {stage_name}
-          COMPRESSION = NONE
-          ;
-    """).collect()
     
     # Check for files in the stage
     files_on_stage = session.sql(f"""
@@ -46,7 +38,7 @@ def load_data(session: snowpark.Session, database_dest, schema_dest):
     df_files_information = pd.DataFrame(columns=['FILE_NAME', 'TABLE_NAME'])
     
     # Split the information to get file name and table name 
-    for file in files_on_stage_name:
+    for file in files_on_stage:
         file_name, table_name = file['FILE'], file['FILE'].split('_')[0]
 
         new_df = pd.DataFrame({
@@ -77,23 +69,6 @@ def load_data(session: snowpark.Session, database_dest, schema_dest):
                 )
             );
     """).collect()
-
-    email_subject = "Daily Stage Rankings Ingestion"
-    email_body = f"""
-        <p>Has successfully finished.</p>
-        <p><b>File Name:</b> {file_name}</p>
-        <p><b>Start Time:</b> {datetime.now().strftime('%H:%M:%S')}</p>
-        <p><b>End Time:</b> {datetime.now().strftime('%H:%M:%S')}</p>
-    """
-    # Send the email
-    send_email = session.sql(f"""
-        CALL SYSTEM$SEND_EMAIL(
-        'my_email_int',
-        'filipe_balseiro@hakkoda.io',
-        '{email_subject}',
-        '{email_body}',
-        'text/html'
-        );""").collect()
 
     # Execute COPY INTO command for each table
     session.sql(f"""
