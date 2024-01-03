@@ -72,7 +72,6 @@ Create also a `seed` for the reference table to translate the country names on t
 - [_country_codes__properties.yml](./_country_codes__properties.yml)
 - [dbt_project.yml](./dbt_project.yml)
 
-
 ---
 
 [Return to Project Challenges](../../../README.md#9-project-challenges)
