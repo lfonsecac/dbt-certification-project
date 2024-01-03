@@ -1,7 +1,7 @@
 boardgame_project:
   outputs:
     dev:
-      account: yg54986.eu-west-3.aws
+      account: jsa18243
       database: BOARDGAME
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: transform
