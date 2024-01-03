@@ -68,9 +68,9 @@ Create also a `seed` for the reference table to translate the country names on t
 
 ### Solution
 - [country_codes.csv](./country_codes.csv)
+- [country_codes_user_reference](./country_codes_user_reference.csv)
 - [_country_codes__properties.yml](./_country_codes__properties.yml)
 - [dbt_project.yml](./dbt_project.yml)
-
 
 ---
 

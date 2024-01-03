@@ -34,6 +34,33 @@ You should install some command line tools, and configure your terminal and edit
 - Setup your Mac [terminal and Zsh](https://hakkoda.atlassian.net/wiki/spaces/DQ/pages/23167067/03+Trick-out+Zsh)
 - Setup your Mac OS with [Visual Studio Code](https://hakkoda.atlassian.net/wiki/spaces/DQ/pages/56098886/05+Setup+Visual+Studio+Code+VS+Code)
 
+### 1.2 Git
+
+- Confirm `git` is installed: ```git --version```
+- Sign up on GitHub using your Hakkoda email
+- Sign in to GitHub using your Hakkoda account
+- Click on the top left button (alongside the GitHub logo) to expand the left panel and press the *Single sign-on* button like shown below
+ ![GitHub Single Sign-On](/docs/images/github_single_sign_on_button.png)
+
+- Press the Continue button
+ ![GitHub Single Sign-On](/docs/images/github_single_sign_on_hakkoda.png)
+ 
+- Finally you have the main page with top panel with the links to access repositories, projects, teams and so on.
+ ![GitHub Single Sign-On](/docs/images/github_hakkoda_account_main.png)
+
+ #### Configure global git settings
+```bash
+git config --global user.name "[github_username]"
+git config --global user.email "[github_email]"
+git config --global init.defaultBranch main
+git config --global --add push.default current
+git config --global push.autoSetupRemote true
+git config --global pull.rebase false
+```
+
+**Note:** make sure to replace [github_username] and [github_email] in the path above with your own
+
+
 ## 2. Clone the Capstone Project Repository
 
 Like all Hakkoda repos, the Capstone Project repo can only be access locally using SSH keys. If you haven't already setup SSH follow these steps or skip straight to the `git clone` command below.
@@ -228,3 +255,18 @@ graph BT;
      - [Add Seeds: Custom Schema Name](./docs/challenges/07_add_seeds/07_add_seeds_custom_schema.md) 
 8. [Add Source Freshness](./docs/challenges/08_add_source_freshness/08_add_source_freshness.md)
 9. [Add Singular Test](./docs/challenges/09_add_singular_test/09_add_singular_test.md)
+
+## 10. Additional Content
+- [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
+- [dbt Sytle Guide](./docs/style_guide.md)
+- GitHub Workflows for GitHub Actions:
+  - [Continuous Integration](/.github/workflows/ci.yml): Runs on Pull Requests to main branch
+  - [Daily dbt job](/.github/workflows/dbt_build.yml): Runs daily on a schedule using cron to build and test source freshness, models, snapshots and seeds
+  - [Upload to Snowflake](./.github/workflows/upload_to_snowflake.yml): Runs daily on a schedule using cron to execute a [python script](./.github/scripts/upload_to_snowflake.py) that loads a `.csv` file to a stage on Snowflake
+- [Pull Request Template](./.github/pull_request_template.md): Template that is applied each time a Pull Request is triggered
+- Snowflake Scripts:
+  - [Snowflake Setup](./docs/snowflake_setup.md)
+  - [Stored Procedure](./docs/snowflake_load_data_stage_table.md) on Snowflake to load data from internal stage to table Rankings
+  - [Task](./docs/snowflake_task_call_procedure.md) to automate Stored Procedure to load data from stage
+
+

@@ -29,6 +29,8 @@ jobs:
       - name: Install dbt
         run: pip3 install dbt-snowflake
 
-      - name: Deploy & Test Models
+      - name: Deploy & Test Models and Source freshness
         working-directory: ./dbt_finished_project
-        run: dbt build --profiles-dir .
+        run: |
+          dbt source freshness --profiles-dir .
+          dbt build --profiles-dir .
