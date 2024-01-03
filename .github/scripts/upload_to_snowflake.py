@@ -22,7 +22,7 @@ def upload_to_snowflake(file_path, stage_name, user, password, account, warehous
         cursor.execute(f'USE DATABASE {database};')
         cursor.execute(f'USE SCHEMA {schema};')
 
-        cursor.execute(f'CREATE STAGE IF NOT EXISTS {stage_name} COMPRESSION = NONE;')
+        cursor.execute(f'CREATE STAGE IF NOT EXISTS {stage_name};')
 
         # Put the CSV file into the Snowflake stage
         cursor.execute(f'PUT file://{file_path} @{stage_name} AUTO_COMPRESS=FALSE;')
