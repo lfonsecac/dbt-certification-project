@@ -43,7 +43,7 @@ We want to define a test to check that assumption.
 ---
 
 ### Solution
-[assert_country_code_has_length_3.sql](./tests/assert_country_code_has_length_3.sql)
+- [assert_country_code_has_length_3.sql](./tests/assert_country_code_has_length_3.sql)
 
 ---
 

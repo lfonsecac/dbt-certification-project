@@ -114,19 +114,19 @@ You can check [dbt docs](https://docs.getdbt.com/reference/node-selection/syntax
 ---
 
 ### Solution
-[_boardgames__models.yml](./staging/_boardgames__models.yml)
-[stg_boardgames__artists.sql](./staging/stg_boardgames__artists.sql)
-[stg_boardgames__boardgames.sql](./staging/stg_boardgames__boardgames.sql)
-[stg_boardgames__categories.sql](./staging/stg_boardgames__categories.sql)
-[stg_boardgames__designers.sql](./staging/stg_boardgames__designers.sql)
-[stg_boardgames__mechanics.sql](./staging/stg_boardgames__mechanics.sql)
-[stg_boardgames__publishers.sql](./staging/stg_boardgames__publishers.sql)
-[stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
-[stg_boardgames__reviews.sql](./staging/stg_boardgames__reviews.sql)
-[stg_boardgames__users.sql](./staging/stg_boardgames__users.sql)
-[dbt_project.yml](./dbt_project.yml)
+- [_boardgames__models.yml](./staging/_boardgames__models.yml)
+- [stg_boardgames__artists.sql](./staging/stg_boardgames__artists.sql)
+- [stg_boardgames__boardgames.sql](./staging/stg_boardgames__boardgames.sql)
+- [stg_boardgames__categories.sql](./staging/stg_boardgames__categories.sql)
+- [stg_boardgames__designers.sql](./staging/stg_boardgames__designers.sql)
+- [stg_boardgames__mechanics.sql](./staging/stg_boardgames__mechanics.sql)
+- [stg_boardgames__publishers.sql](./staging/stg_boardgames__publishers.sql)
+- [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
+- [stg_boardgames__reviews.sql](./staging/stg_boardgames__reviews.sql)
+- [stg_boardgames__users.sql](./staging/stg_boardgames__users.sql)
+- [dbt_project.yml](./dbt_project.yml)
 
 
 ---
 
-[Return to Project Challenges](../../README.md#6-project-challenges)
+[Return to Project Challenges](../../../README.md#9-project-challenges)

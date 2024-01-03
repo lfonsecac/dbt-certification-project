@@ -46,8 +46,8 @@ You can check [dbt docs](https://docs.getdbt.com/docs/build/custom-schemas) for 
 ---
 
 ### Solution
-[generate_schema_name.sql](./macros/generate_schema_name.sql)
-[dbt_project.yml](./dbt_project_custom_schema.yml)
+- [generate_schema_name.sql](./macros/generate_schema_name.sql)
+- [dbt_project.yml](./dbt_project_custom_schema.yml)
 
 
 ---
