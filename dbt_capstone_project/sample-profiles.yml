@@ -1,7 +1,7 @@
 boardgame_project: # name of the profile described on dbt_project.yml
   outputs:
     dev:
-      account: yg54986.eu-west-3.aws
+      account: jsa18243
       database: BOARDGAME
       password: dbtPassword123
       role: transform

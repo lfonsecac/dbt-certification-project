@@ -4,7 +4,7 @@
 CREATE OR REPLACE PROCEDURE load_data_from_stage(
     database_dest STRING, 
     schema_dest STRING,
-    stage STRING
+    stage_name STRING
 )
 RETURNS STRING
 LANGUAGE PYTHON
@@ -22,7 +22,7 @@ from datetime import timedelta, date, datetime
 import pandas as pd
 
 
-def load_data(session: snowpark.Session, database_dest, schema_dest, stage):
+def load_data(session: snowpark.Session, database_dest, schema_dest, stage_name):
 
     # Set the destination database and schema
     session.sql(f"USE DATABASE {database_dest};").collect()
@@ -31,7 +31,7 @@ def load_data(session: snowpark.Session, database_dest, schema_dest, stage):
     # Check for files in the stage
     files_on_stage = session.sql(f"""
         SELECT distinct(METADATA$FILENAME) FILE
-        FROM @{database_dest}.{schema_dest}.{stage};
+        FROM @{database_dest}.{schema_dest}.{stage_name};
     """).collect()
 
     # Create a DataFrame to store file and the table name 
@@ -63,7 +63,7 @@ def load_data(session: snowpark.Session, database_dest, schema_dest, stage):
                 SELECT ARRAY_AGG(OBJECT_CONSTRUCT(*))
                 FROM TABLE(
                     INFER_SCHEMA(
-                        LOCATION=>'@{stage}/{file_name}',
+                        LOCATION=>'@{stage_name}/{file_name}',
                         FILE_FORMAT=>'copy_into_rankings'
                     )
                 )
@@ -73,7 +73,7 @@ def load_data(session: snowpark.Session, database_dest, schema_dest, stage):
     # Execute COPY INTO command for each table
     session.sql(f"""
         COPY INTO {table_name}
-        FROM '@{stage}/{file_name}'
+        FROM '@{stage_name}/{file_name}'
         FILE_FORMAT = (FORMAT_NAME = 'copy_into_rankings')
         ON_ERROR = SKIP_FILE
         PURGE = TRUE

@@ -4,8 +4,8 @@
 Copy these SQL statements into a Snowflake Worksheet, select all and execute them (i.e. pressing the play button).
 
 ```sql
--- Use an admin role
-USE ROLE ACCOUNTADMIN;
+-- Use a sysadmin role
+USE ROLE SYSADMIN;
 
 -- Create the `transform` role
 CREATE ROLE IF NOT EXISTS transform;
