@@ -63,7 +63,7 @@ In this situation, the `quote` property is not available so we have to use the `
 ---
 
 ### Solution
-[_boardgames__sources.yml](./staging/_boardgames__sources.yml)
+- [_boardgames__sources.yml](./staging/_boardgames__sources.yml)
 
 ---
 

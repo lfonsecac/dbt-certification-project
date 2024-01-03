@@ -31,7 +31,7 @@ Using the example above you should create the sources file following the [style 
 ---
 
 ### Solution
-[_boardgames__sources.yml](./staging/_boardgames__sources.yml)
+- [_boardgames__sources.yml](./staging/_boardgames__sources.yml)
 
 ---
 

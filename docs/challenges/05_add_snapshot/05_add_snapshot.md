@@ -29,7 +29,7 @@ To find out more information about `snapshots` clik [here].(https://docs.getdbt.
 ---
 
 ### Solution
-[boardgames__rankings.sql](./snapshots/boardgames__rankings.sql)
+- [boardgames__rankings.sql](./snapshots/boardgames__rankings.sql)
 
 **Notes:** 
 - There is already a `snapshot` table under `snapshots` schema that I've been maintaining to test if things are working properly.
