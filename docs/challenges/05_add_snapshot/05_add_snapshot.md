@@ -5,7 +5,7 @@ Snapshots implement [type-2 Slowly Changing Dimensions](https://en.wikipedia.org
 
 In dbt, snapshots are `select` statements, defined within a `snapshot` block in a .sql file (typically in your snapshots directory). You'll also need to configure your snapshot to tell dbt how to detect record changes.
 
-``` yaml
+``` sql
 {% snapshot orders_snapshot %}
 
 {{

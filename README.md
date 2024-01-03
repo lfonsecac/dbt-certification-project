@@ -8,6 +8,10 @@ The main goal of this project is to deliver the tools and practice required to p
 
 To do that the company relies on your expertise to perform insights on the datasets available and build recommendations from it.
 
+### Data Architecture
+
+![Data Architecture](./docs/images/dbt_capstone_project_architecture.png)
+
 ### Data Model
 
 [Data Model](https://miro.com/app/board/uXjVN-3i7mo=/?moveToWidget=3458764574304978327&cot=14)
