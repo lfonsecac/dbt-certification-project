@@ -1,6 +1,30 @@
 # dbt Capstone Project
 The main goal of this project is to deliver the tools and practice required to pass the dbt Analytics Engineering Exam.
 
+- [dbt Capstone Project](#dbt-capstone-project)
+   * [Scenario](#scenario)
+      + [Data Architecture](#data-architecture)
+      + [Data Model](#data-model)
+         - [Raw Layer](#raw-layer)
+         - [Core Layer](#core-layer)
+      + [Data Dictionary](#data-dictionary)
+   * [1. Development Setup](#1-development-setup)
+      + [1.1 Setup your Mac](#11-setup-your-mac)
+      + [1.2 Git](#12-git)
+   * [2. Clone the Capstone Project Repository](#2-clone-the-capstone-project-repository)
+      + [Generate a New SSH Key](#generate-a-new-ssh-key)
+      + [Add the SSH key to your GitHub account](#add-the-ssh-key-to-your-github-account)
+      + [Git Clone Capstone Project](#git-clone-capstone-project)
+   * [3. Setup Your Python Environment](#3-setup-your-python-environment)
+   * [4. Activate Your Virtual Environment](#4-activate-your-virtual-environment)
+   * [5. Install Python packages required](#5-install-python-packages-required)
+   * [6. Setup dbt Project](#6-setup-dbt-project)
+   * [7. Install dbt Power Extension for VSCode](#7-install-dbt-power-extension-for-vscode)
+   * [8. How to use Git on this Project](#8-how-to-use-git-on-this-project)
+      + [8.1.Capstone Project Git Workflow](#81capstone-project-git-workflow)
+   * [9. Project Challenges](#9-project-challenges)
+   * [10. Additional Content](#10-additional-content)
+
 ## Scenario
 - You have been hired by a new company that wants to publish the next big hit of boardgame and needs your help to identify the factors to create this new boardgame, like:
     - Countries with highest demand (based on number of reviews and positive reviews, what are the kind of games that users rank the best).
@@ -14,7 +38,12 @@ To do that the company relies on your expertise to perform insights on the datas
 
 ### Data Model
 
+#### Raw Layer
 [Data Model](https://miro.com/app/board/uXjVN-3i7mo=/?moveToWidget=3458764574304978327&cot=14)
+
+#### Core Layer
+[Data Model - Snowflake Schema](https://miro.com/app/board/uXjVN-3i7mo=/?moveToWidget=3458764574588845913&cot=14)
+
 
 ### Data Dictionary
 
