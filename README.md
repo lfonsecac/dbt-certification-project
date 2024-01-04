@@ -60,6 +60,10 @@ git config --global pull.rebase false
 
 **Note:** make sure to replace [github_username] and [github_email] in the path above with your own
 
+To confirm your git settings run the following command:
+```bash
+git config --global --list
+```
 
 ## 2. Clone the Capstone Project Repository
 
