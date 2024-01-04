@@ -150,6 +150,9 @@ brew install python@3.10 virtualenv
 Create your Python virtual environment. (If you have used another Python version, please change the code below accordingly)
 
 ``` shell
+# Change to dbt-pt-capstone-project repository root folder
+cd dbt-pt-capstone-project/
+
 # Setup a project python virtual environement
 virtualenv .dbt-env --python=python3.10
 ```
