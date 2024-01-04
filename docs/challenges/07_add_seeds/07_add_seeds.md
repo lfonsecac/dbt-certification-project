@@ -62,15 +62,25 @@ dbt seed --select country_codes+
 
 You can check [dbt docs](https://docs.getdbt.com/docs/build/seeds) for more details.
 
-Create also a `seed` for the reference table to translate the country names on the users table to country_codes table: [csv file](./country_codes_user_reference.csv)
+Create also a `seed` for the reference table to translate the country names on the users table to country_codes table: [csv file](./country_codes_users_ref.csv)
+
+#### Create new staging models for seeds
+To apply the same logic to the seeds tables, we should create staging models that use the `ref` function to define the lineage to the respective `seeds`. 
+
+**Note:** dbt doesn't provide documentation regarding the best practices on naming convention and downstream lineage associated to `seeds`.
+Considering that we don't have a source database with these tables, I've defined the models names following this naming structure:
+`stg_<seed_table_name>.sql`.
 
 ---
 
 ### Solution
 - [country_codes.csv](./country_codes.csv)
-- [country_codes_user_reference](./country_codes_user_reference.csv)
+- [country_codes_users_ref](./country_codes_users_ref.csv)
 - [_country_codes__properties.yml](./_country_codes__properties.yml)
 - [dbt_project.yml](./dbt_project.yml)
+- [_boardgames__models.yml](./staging/_boardgames__models.yml)
+- [stg_country_codes.sql](./staging/stg_country_codes.sql)
+- [stg_country_codes_users_ref.sql](./staging/stg_country_codes_users_ref.sql)
 
 ---
 

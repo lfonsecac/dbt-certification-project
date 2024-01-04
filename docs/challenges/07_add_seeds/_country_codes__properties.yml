@@ -12,7 +12,7 @@ seeds:
         tests:
           - unique
           - not_null
-  - name: country_codes_user_reference
+  - name: country_codes_users_ref
     description: A mapping of three letter country codes to country names from users table
     columns:
       - name: country_code
