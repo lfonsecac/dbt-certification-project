@@ -1,0 +1,16 @@
+[0m16:28:11.043599 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105aae980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110086e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110087220>]}
+
+
+============================== 16:28:11.046797 | 777db0f9-737b-4ab6-ad90-205b416288c0 ==============================
+[0m16:28:11.046797 [info ] [MainThread]: Running with dbt=1.7.4
+[0m16:28:11.047160 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/filipebalseiro/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt clean', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:28:11.047653 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/filipebalseiro/Downloads/projects/dbt-pt-capstone-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m16:28:11.049416 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_wall_clock_time": 0.045493916, "process_user_time": 0.96084, "process_kernel_time": 0.142298, "process_mem_max_rss": "97206272", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m16:28:11.049886 [debug] [MainThread]: Command `dbt clean` failed at 16:28:11.049796 after 0.05 seconds
+[0m16:28:11.050141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105aae980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1100878e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110086560>]}
+[0m16:28:11.050414 [debug] [MainThread]: Flushing usage events
+[0m16:28:11.600192 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
