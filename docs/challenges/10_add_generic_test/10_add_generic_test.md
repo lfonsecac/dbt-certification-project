@@ -132,7 +132,7 @@ So, we can have 2 possible approaches:
 I suggest that we proceed with the 2nd approach so the solutions follow that,  but feel free to choose whatever option you feel is the more adequate. 
 Remember, this is your project!
 
-We'll cover that on the 2nd part of this challenge, because before I want to introduce another concept of configuring test `severity`, and we're going to use this situation for that.
+We'll cover that on another challenge, because before I want to introduce another concept of configuring test `severity`, and we're going to use this situation for that.
 
 ---
 
