@@ -11,7 +11,7 @@ final as (
     select
         user as review_username,
         id as boardgame_id,
-        rating as review_rating
+        round(cast(rating as float), 2) as review_rating
 
     from reviews
 

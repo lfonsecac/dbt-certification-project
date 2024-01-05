@@ -12,7 +12,7 @@ final as (
         game_id as boardgame_id,
         name as boardgame_name,
         case
-            when type = 'boardgame' then 'boargame'
+            when type = 'boardgame' then 'boardgame'
             else 'not boardgame'
         end as boardgame_type,
         cast (

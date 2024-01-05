@@ -30,7 +30,11 @@ having not(total_amount >= 0)
 To check the test, we have to run the following command:
 
 ```bash
+# Run all tests
 dbt test
+
+#Run singular tests only
+dbt test -s "test_type:singular"
 ```
 
 You can check [dbt docs](https://docs.getdbt.com/docs/build/data-tests) for more details about data tests.

@@ -291,6 +291,10 @@ graph BT;
      - [Add Seeds: Custom Schema Name](./docs/challenges/07_add_seeds/07_add_seeds_custom_schema.md) 
 8. [Add Source Freshness](./docs/challenges/08_add_source_freshness/08_add_source_freshness.md)
 9. [Add Singular Test](./docs/challenges/09_add_singular_test/09_add_singular_test.md)
+10. [Add Generic Test](./docs/challenges/10_add_generic_test/10_add_generic_test.md)
+11. [Configure Test Severity](./docs/challenges/11_config_test_severity/11_config_test_severity.md)
+12. [Update Staging Models](./docs/challenges/12_update_staging_models/12_update_staging_models.md)
+13. [Customize Data Test Name](./docs/challenges/13_customize_data_test_name/13_customize_data_test_name.md)
 
 ## 10. Additional Content
 - [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
