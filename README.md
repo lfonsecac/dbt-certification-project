@@ -291,6 +291,15 @@ graph BT;
      - [Add Seeds: Custom Schema Name](./docs/challenges/07_add_seeds/07_add_seeds_custom_schema.md) 
 8. [Add Source Freshness](./docs/challenges/08_add_source_freshness/08_add_source_freshness.md)
 9. [Add Singular Test](./docs/challenges/09_add_singular_test/09_add_singular_test.md)
+10. [Add Generic Test](./docs/challenges/10_add_generic_test/10_add_generic_test.md)
+
+- Stuff to do next:
+   - Create intermediate models: 
+     - join country_codes with country_codes_users_ref and users
+     - filter the tables to have data that matches with reviews tables till 2019
+   - Define variables (vars property) to define the models names on dbt_project.yml
+   - Add tags. Create a tag called static on the sources and when run dtb —exclude tag:static
+   - [ ]  Pre-hooks, create the following. Can also do a test of a pre-hook with the stored procedure that I'm currently running on Snowflake using a scheduled task, check if that could be run using pre-hook: https://gist.github.com/jeremyyeo/e64fa3e8fafb7fa21235c80ce3048efa
 
 ## 10. Additional Content
 - [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
