@@ -47,10 +47,13 @@ To check the test, we have to run the following command:
 dbt test
 
 # Run tests on a specific model
-dbt test -s stg_boardgames_reviews
+dbt test -s stg_boardgames__reviews
 
-# Run tests on a specific model and upstream models associated to this specific model
-dbt test -s +stg_boardgames_reviews
+# Run all generic tests (be aware that this will run also the out-of-the-box generic tests - unique, not_null, accepted_values, relationships)
+dbt test -s "test_type:generic"
+
+# Run tests on all models with a particular materialization (staging models)
+dbt test -s "config.materialized:view"
 ```
 
 You can check [dbt docs](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests) for more details about generic data tests.
