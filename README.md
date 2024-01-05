@@ -1,7 +1,7 @@
-# dbt Capstone Project
+# dbt Certification Project
 The main goal of this project is to deliver the tools and practice required to pass the dbt Analytics Engineering Exam.
 
-- [dbt Capstone Project](#dbt-capstone-project)
+- [dbt Certification Project](#dbt-certification-project)
    * [Scenario](#scenario)
       + [Data Architecture](#data-architecture)
       + [Data Model](#data-model)
@@ -11,17 +11,17 @@ The main goal of this project is to deliver the tools and practice required to p
    * [1. Development Setup](#1-development-setup)
       + [1.1 Setup your Mac](#11-setup-your-mac)
       + [1.2 Git](#12-git)
-   * [2. Clone the Capstone Project Repository](#2-clone-the-capstone-project-repository)
+   * [2. Clone the dbt Certification Project Repository](#2-clone-the-dbt-certification-project-repository)
       + [Generate a New SSH Key](#generate-a-new-ssh-key)
       + [Add the SSH key to your GitHub account](#add-the-ssh-key-to-your-github-account)
-      + [Git Clone Capstone Project](#git-clone-capstone-project)
+      + [Git Clone dbt Certification Project](#git-clone-dbt-certification-project)
    * [3. Setup Your Python Environment](#3-setup-your-python-environment)
    * [4. Activate Your Virtual Environment](#4-activate-your-virtual-environment)
    * [5. Install Python packages required](#5-install-python-packages-required)
    * [6. Setup dbt Project](#6-setup-dbt-project)
    * [7. Install dbt Power Extension for VSCode](#7-install-dbt-power-extension-for-vscode)
    * [8. How to use Git on this Project](#8-how-to-use-git-on-this-project)
-      + [8.1.Capstone Project Git Workflow](#81capstone-project-git-workflow)
+      + [8.1.dbt Certification Project Git Workflow](#81dbt-certification-project-git-workflow)
    * [9. Project Challenges](#9-project-challenges)
    * [10. Additional Content](#10-additional-content)
 
@@ -34,7 +34,7 @@ To do that the company relies on your expertise to perform insights on the datas
 
 ### Data Architecture
 
-![Data Architecture](./docs/images/dbt_capstone_project_architecture.png)
+![Data Architecture](./docs/images/dbt_certification_project_architecture.png)
 
 ### Data Model
 
@@ -94,9 +94,9 @@ To confirm your git settings run the following command:
 git config --global --list
 ```
 
-## 2. Clone the Capstone Project Repository
+## 2. Clone the dbt Certification Project Repository
 
-Like all Hakkoda repos, the Capstone Project repo can only be access locally using SSH keys. If you haven't already setup SSH follow these steps or skip straight to the `git clone` command below.
+Like all Hakkoda repos, the dbt Certification Project repo can only be access locally using SSH keys. If you haven't already setup SSH follow these steps or skip straight to the `git clone` command below.
 
 ### Generate a New SSH Key
 
@@ -148,9 +148,9 @@ Then to enable SSO for your key, click `Configure SSO` and then `Authorize`. Cli
 
 When finalized it should look like this. ![GitHub SSH Key](./docs/images/github_ssh_key.png "GitHub SSH Key")
 
-### Git Clone Capstone Project
+### Git Clone dbt Certification Project
 
-Before cloning your repo, you should open your terminal to a development folder to store our tundra code in.
+Before cloning your repo, you should open your terminal to a development folder to store our project code in.
 
 For example:
 
@@ -164,13 +164,13 @@ mkdir Develop
 # Change to the development directory
 cd Develop
 
-# Clone tundra (NOTE: uses SSH key)
-git clone git@github.com:Hakkoda1/dbt-pt-capstone-project.git
+# Clone project repository (NOTE: uses SSH key)
+git clone git@github.com:Hakkoda1/dbt-certification-project.git
 ```
 
 ## 3. Setup Your Python Environment
 
-Setup Python for dbt use with Snowflake. Because dbt-core is currently compatible with Python versions from 3.8 - 3.11, we have setup the Capstone project to use Python 3.10, but feel free to install any version that is supported by dbt ([source](https://docs.getdbt.com/faqs/Core/install-python-compatibility)).
+Setup Python for dbt use with Snowflake. Because dbt-core is currently compatible with Python versions from 3.8 - 3.11, we have setup the project to use Python 3.10, but feel free to install any version that is supported by dbt ([source](https://docs.getdbt.com/faqs/Core/install-python-compatibility)).
 
 ``` shell
 brew install python@3.10 virtualenv
@@ -179,8 +179,8 @@ brew install python@3.10 virtualenv
 Create your Python virtual environment. (If you have used another Python version, please change the code below accordingly)
 
 ``` shell
-# Change to dbt-pt-capstone-project repository root folder
-cd dbt-pt-capstone-project/
+# Change to dbt-certification-project repository root folder
+cd dbt-certification-project/
 
 # Setup a project python virtual environement
 virtualenv .dbt-env --python=python3.10
@@ -188,7 +188,7 @@ virtualenv .dbt-env --python=python3.10
 
 ## 4. Activate Your Virtual Environment
 
-***Every time*** you open a new terminal, you will need to source your Capstone Project Python environment:
+***Every time*** you open a new terminal, you will need to source your Project Python environment:
 
 ``` bash
 # Source your project environment
@@ -206,11 +206,11 @@ pip install -r requirements.txt
 
 When you clone the repository the dbt project was already initialized, so you can skip the command `dbt init`.
 
-After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt_capstone_project:
+After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt_certification_project:
 
 ``` bash
-# Change to dbt_capstone_project folder
- cd dbt_capstone_project/
+# Change to dbt_certification_project folder
+ cd dbt_certification_project/
 
 # Rename the file sample-profiles.yml to profiles.yml
 cp sample-profiles.yml profiles.yml
@@ -250,9 +250,9 @@ Below there are a couple of additional videos with useful information on how to 
 
 Git is an integral part of version control and CI/CD. It makes contributing to a project with multiple contributors extremely easy. Version control is essential and allows any project to move to any snapshot of time in the development history.
 
-### 8.1.Capstone Project Git Workflow
+### 8.1.dbt Certification Project Git Workflow
 
-Capstone Project uses the Simple Flow branching convention with a few types of branches:
+dbt Certification Project uses the Simple Flow branching convention with a few types of branches:
 
 - **Short running branches (features)**: temporary dedicated branches for work-in-progress features
    - start from `develop`, to develop changes that are then integrated (merged) back to `develop`

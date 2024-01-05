@@ -23,7 +23,7 @@ export DBT_USER=<user>
 ### Alternative approach: use `.env`
 Other approach that is used on projects on USFoods is to define the environment variables inside a `.env` file on the root folder of your dbt project.
 
-- Rename the `sample-env` file to `.env`
+- Rename the [`sample-env`](../../../.sample-env) file to `.env` on the repository main directory
 - Execute the command on your terminal
  ``` bash
 source .env
