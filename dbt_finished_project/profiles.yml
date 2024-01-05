@@ -9,7 +9,7 @@ boardgame_project:
       threads: 1
       type: snowflake
       user: "{{ env_var('DBT_USER') }}"
-      warehouse: DBT_CAPSTONE_PROJECT_WH
+      warehouse: DBT_CERTIFICATION_PROJECT_WH
     ci:
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
