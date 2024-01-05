@@ -63,8 +63,23 @@ As you may have noticed before, when we run the test for the `accepted_values` o
 
 You can check [dbt docs](https://docs.getdbt.com/reference/resource-properties/data-tests#custom-data-test-name) for more details about custom data test name.
 
-### Task: Create custom data test name for boardgames type
-Apply the custom data test name configuration above to column `type` from `boardgames` source table.
+### Task: Create custom data test name
+Apply the custom data test name configuration above to the following:
+- column `type` from `boardgames` source table
+- column `boardgame_avg_rating` from `stg_boardgames__boardgames` model
+- column `boardgame_avg_rating` from `stg_boardgames__rankings` model
+- column `boardgame_bayes_avg_rating` from `stg_boardgames__rankings` model
+- column `review_rating` from `stg_boardgames__reviews` model
+
+To check the tests, we can use the following options:
+
+```bash
+# Run tests on all models
+dbt test
+
+# Run only tests with test_name: accepted_values_between_1_10 + test_name: accepted_values
+dbt test -s "test_name:accepted_values_between_1_10" "test_name:accepted_values"
+```
 
 **Note:** You can also apply the same logic to other tests, feel free to do that. The important thing is to be aware of this feature and learning on how to use when it can be useful.
 
