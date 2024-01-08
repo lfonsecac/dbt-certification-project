@@ -93,10 +93,8 @@ We're going to apply these tags to the following models:
 ### Solution
 
 - [dbt_project.yml](dbt_project.yml)
-- [stg_boardgames__boardgames.sql](./staging/stg_boardgames__boardgames.sql)
+- [boardgames__rankings.sql](./snapshots/boardgames__rankings.sql)
 - [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
-- [stg_boardgames__reviews.sql](./staging/stg_boardgames__reviews.sql)
-- [int_boardgames__boardgames_filtered.sql](./intermediate/int_boardgames__boardgames_filtered.sql)
 
 ---
 
