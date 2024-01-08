@@ -16,8 +16,8 @@ final as (
                 case
                     when cast(rating as float) < 1 then 1
                     else rating
-                end as float
-            ), 2
+                end as int
+            ), 0
         ) as review_rating
 
     from reviews
