@@ -16,6 +16,7 @@ final as (
             when trim(country) = 'NA' then 'Unknown'
             when country = '
 '   then 'Unknown' 
+            when len(country) = 2 then 'Unknown'
             else trim(country)
         end as country_name
 
