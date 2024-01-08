@@ -70,9 +70,15 @@ We're going to add the following variables to `dbt_project.yml` in order to prev
 ### Solution
 
 - [dbt_project.yml](dbt_project.yml)
+- [stg_boardgames__artists.sql](./staging/stg_boardgames__artists.sql)
 - [stg_boardgames__boardgames.sql](./staging/stg_boardgames__boardgames.sql)
+- [stg_boardgames__categories.sql](./staging/stg_boardgames__categories.sql)
+- [stg_boardgames__designers.sql](./staging/stg_boardgames__designers.sql)
+- [stg_boardgames__mechanics.sql](./staging/stg_boardgames__mechanics.sql)
+- [stg_boardgames__publishers.sql](./staging/stg_boardgames__publishers.sql)
 - [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
 - [stg_boardgames__reviews.sql](./staging/stg_boardgames__reviews.sql)
+- [stg_boardgames__users.sql](./staging/stg_boardgames__users.sql)
 - [int_boardgames__boardgames_filtered.sql](./intermediate/int_boardgames__boardgames_filtered.sql)
 
 ---
