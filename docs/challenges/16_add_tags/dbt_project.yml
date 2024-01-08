@@ -47,7 +47,8 @@ models:
         - static
     intermediate:
       +materialized: ephemeral
-      +tags: intermediate
+      +tags: 
+        - intermediate
 
 seeds:
   dbt_certification_project:
@@ -55,4 +56,5 @@ seeds:
     +column_types:
       country_name: varchar(100)
       country_code: varchar(3)
-    +tags: seed
+    +tags: 
+      - seed
