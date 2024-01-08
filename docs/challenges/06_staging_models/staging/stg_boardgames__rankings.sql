@@ -9,6 +9,7 @@ rankings as (
 final as (
 
     select
+        dbt_scd_id as ranking_key,
         id as boardgame_id,
         "Name" as boardgame_name,
         "Year" as boardgame_year_published,
@@ -18,6 +19,10 @@ final as (
         "Users rated" as boardgame_total_reviews,
         CONCAT('https://boardgamegeek.com', url) as boardgame_url,
         "Thumbnail" as boardgame_thumbnail,
+        case
+            when dbt_valid_to is NULL then true
+            else false
+        end as is_current,
         updated_at,
         dbt_valid_from as valid_from,
         coalesce(

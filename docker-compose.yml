@@ -1,0 +1,10 @@
+services:
+  dbt:
+    image: dbt
+    container_name: dbt
+    build:
+      context: .
+    volumes:
+      - ./dbt_certification_project:/opt/develop
+    ports:
+      - "8080:8080"
