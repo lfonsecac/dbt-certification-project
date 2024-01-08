@@ -295,6 +295,7 @@ graph BT;
 11. [Configure Test Severity](./docs/challenges/11_config_test_severity/11_config_test_severity.md)
 12. [Update Staging Models](./docs/challenges/12_update_staging_models/12_update_staging_models.md)
 13. [Customize Data Test Name](./docs/challenges/13_customize_data_test_name/13_customize_data_test_name.md)
+14. [Add Intermediate Models](./docs/challenges/14_add_intermediate_models/14_add_intermediate_models.md)
 
 ## 10. Additional Content
 - [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
