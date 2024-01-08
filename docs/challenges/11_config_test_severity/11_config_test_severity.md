@@ -47,7 +47,7 @@ You should apply the following `severity` as following:
 - accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
   - severity: warn
     - warn_if: ">1000"
-- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
+- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_bayes_avg_rating
   - severity: error
     - error_if: ">20"
     - warn_if: ">1"
