@@ -40,12 +40,17 @@ You can check [dbt docs](https://docs.getdbt.com/reference/resource-configs/seve
 
 On the last challenge we had the following tests failing:
 - accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
+- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_bayes_avg_rating
 - accepted_values_between_1_10_stg_boardgames__reviews_review_rating
 
 You should apply the following `severity` as following:
 - accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
   - severity: warn
     - warn_if: ">1000"
+- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
+  - severity: error
+    - error_if: ">20"
+    - warn_if: ">1"
 - accepted_values_between_1_10_stg_boardgames__reviews_review_rating
   - severity: error 
     - error_if: ">100"
@@ -58,6 +63,9 @@ dbt test -s "test_type:generic"
 
 # Run tests on all models with a particular materialization (staging models)
 dbt test -s "config.materialized:view"
+
+# Run only tests with test_name: accepted_values_between_1_10
+dbt test -s "test_name:accepted_values_between_1_10" 
 
 # Run only the specific mdodels
 dbt test -s stg_boardgames__reviews stg_boardgames__boardgames

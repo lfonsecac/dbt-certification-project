@@ -22,6 +22,10 @@ models:
       - name: boardgame_bayes_avg_rating
         tests:
           - accepted_values_between_1_10
+              config:
+                severity: error
+                error_if: ">20"
+                warn_if: ">1"
   - name: stg_boardgames__reviews
     columns:
       - name: review_rating
