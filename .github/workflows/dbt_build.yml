@@ -33,4 +33,4 @@ jobs:
         working-directory: ./dbt_finished_project
         run: |
           dbt source freshness --profiles-dir .
-          dbt build --profiles-dir .
+          dbt build -s +tag:daily+ --profiles-dir .
