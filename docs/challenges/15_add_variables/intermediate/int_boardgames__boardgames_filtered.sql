@@ -14,7 +14,7 @@ boardgames_filtered as (
     from boardgames
     where 
         boardgame_id in (select boardgame_id from reviews)
-        and boardgame_type not in '{{ var("boardgame_type") }}'
+        and boardgame_type = '{{ var("boardgame_type") }}'
         and boardgame_avg_rating <> '{{ var("number_unknown") }}'
         and boardgame_avg_weight <> '{{ var("number_unknown") }}'
 )
