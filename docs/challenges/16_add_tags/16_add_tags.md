@@ -83,11 +83,6 @@ We're going to apply these tags to the following models:
 - `static`: to all the other staging models
 - `intermediate`: to all intermediate models
 
-- Add an `unknown` variable with the value `Unknown` and update it on the respective models
-- Add a `boardgame_type` variable with the value `boardgame` and update it on the respective models
-- Add a `number_unknown` variable with value `-1` and update it on the respective models
-- Add a `min_accepted_num` variable with value `1` and update it on the respective models
-
 ---
 
 ### Solution
