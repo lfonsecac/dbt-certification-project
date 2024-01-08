@@ -42,10 +42,10 @@ You're going to define the following intermediate models:
 
 ### Solution
 
-[_int__models.yml](./intermediate/_int__models.yml)
-[int_boardgames__boardgames_filtered.sql](./intermediate/int_boardgames__boardgames_filtered.sql)
-[int_users_countries_joined.sql](./intermediate/int_users_countries_joined.sql)
-[dbt_project.yml](dbt_project.yml)
+- [_int__models.yml](./intermediate/_int__models.yml)
+- [int_boardgames__boardgames_filtered.sql](./intermediate/int_boardgames__boardgames_filtered.sql)
+- [int_users_countries_joined.sql](./intermediate/int_users_countries_joined.sql)
+- [dbt_project.yml](dbt_project.yml)
 
 ---
 
