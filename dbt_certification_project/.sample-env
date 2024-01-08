@@ -1,2 +1,2 @@
-DBT_USER=dbt
-DBT_PASSWORD=dbtPassword123
+export DBT_USER=dbt
+export DBT_PASSWORD=dbtPassword123
