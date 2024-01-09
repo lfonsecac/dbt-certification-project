@@ -103,7 +103,7 @@ You can check [dbt docs](https://docs.getdbt.com/docs/build/incremental-models) 
 
 ### Solution
 
-- [fct_reviews.sql - materialized='table'](./core/fct_reviews.sql)
+- [fct_reviews.sql](./core/fct_reviews.sql)
 - [dim_users.sql](./core/dim_users.sql)
 - [dim_artists.sql](./core/dim_artists.sql)
 - [dim_boardgames.sql](./core/dim_boardgames.sql)
