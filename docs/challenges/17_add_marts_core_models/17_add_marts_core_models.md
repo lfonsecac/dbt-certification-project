@@ -1,7 +1,9 @@
 # Exercise:
 
 ## Add Marts Models (Core)
+This is the layer where everything comes together and we start to arrange all of our `atoms` (staging models) and `molecules` (intermediate models) into full-fledged cells that identity and purpose.
 
+You can check [dbt docs](https://docs.getdbt.com/best-practices/how-we-structure/4-marts) for more details about marts.
 
 ## Task: Create dimension and fact tables
 The goal is to implement the models that are represented on the Snowflake Schema below.
