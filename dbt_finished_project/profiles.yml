@@ -6,7 +6,7 @@ boardgame_project:
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: transform
       schema: dbt_fbalseiro
-      threads: 1
+      threads: 4
       type: snowflake
       user: "{{ env_var('DBT_USER') }}"
       warehouse: DBT_CERTIFICATION_PROJECT_WH
@@ -16,7 +16,7 @@ boardgame_project:
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE') }}"
       schema: dbt_ci
-      threads: 1
+      threads: 4
       type: snowflake
       user: "{{ env_var('DBT_USER') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
