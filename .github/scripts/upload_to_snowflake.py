@@ -40,8 +40,8 @@ def process_csv(file_path):
     # Load CSV as a Pandas DataFrame
     df = pd.read_csv(file_path)
 
-    # Remove duplicates based on all columns
-    df = df.drop_duplicates()
+     # Remove duplicates based on the 'ID' column
+    df = df.drop_duplicates(subset=['ID'])
 
     # Add a new column with the date in the format YYYY-MM-DD
     yesterday = datetime.now() - timedelta(days=1)
