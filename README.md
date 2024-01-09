@@ -299,6 +299,7 @@ graph BT;
 15. [Add Variables](./docs/challenges/15_add_variables/15_add_variables.md)
 16. [Add Tags](./docs/challenges/16_add_tags/16_add_tags.md)
 17. [Add Marts Core Models](./docs/challenges/17_add_marts_core_models/17_add_marts_core_models.md)
+18. [Generate Documentation](./docs/challenges/18_generate_documentation/18_generate_documentation.md)
 
 ## 10. Additional Content
 - [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
