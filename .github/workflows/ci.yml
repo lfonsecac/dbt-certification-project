@@ -31,4 +31,6 @@ jobs:
 
       - name: Deploy & Test Models
         working-directory: ./dbt_finished_project
-        run: dbt build --profiles-dir . --target ci
+        run: |
+          dbt deps --profiles-dir . --target ci
+          dbt build --profiles-dir . --target ci
