@@ -1,7 +1,7 @@
 {{
     config(
         materialized='incremental',
-        unique_key='udpated_at'
+        unique_key='ranking_key'
     )
 }}
 
@@ -36,6 +36,6 @@ select * from dim_rankings
 
   -- this filter will only be applied on an incremental run
   -- (uses >= to include records arriving later on the same day as the last run of this model)
-  where udpated_at >= (select max(udpated_at) from {{ this }})
+  where updated_at > (select max(updated_at) from {{ this }})
 
 {% endif %}
