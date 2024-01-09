@@ -61,6 +61,44 @@ Define the following generic out-of-the-box tests whenever applies:
 - relationships
   - Customize the data test name to something more *user friendly*. Check this [previous challenge](../13_customize_data_test_name/13_customize_data_test_name.md) to refresh your mind on how to do it.
 
+
+### Change materialization of dim_rankings to incremental
+Incremental models are built as tables in your data warehouse. The first time a model is run, the table is built by transforming all rows of source data. On subsequent runs, dbt transforms only the rows in your source data that you tell dbt to filter for, inserting them into the target table which is the table that has already been built.
+
+#### Using incremental materializations
+To use incremental models you need to:
+- Define a config block with `materialized='incremental'`
+- Tell dbt how to filter the rows on an incremental run
+- The unique key of the model (if any)
+
+To tell dbt which rows it should transform on an incremental run, wrap valid SQL that filters for these rows in the `is_incremental()` macro.
+
+For example, a model that includes a computationally slow transformation on a column can be built incrementally, as follows:
+
+```sql
+{{
+    config(
+        materialized='incremental'
+    )
+}}
+
+select
+    *,
+    my_slow_function(my_column)
+
+from raw_app_data.events
+
+{% if is_incremental() %}
+
+  -- this filter will only be applied on an incremental run
+  -- (uses > to include records whose timestamp occurred since the last run of this model)
+  where event_time > (select max(event_time) from {{ this }})
+
+{% endif %}
+```
+
+You can check [dbt docs](https://docs.getdbt.com/docs/build/incremental-models) for more details about incremental models.
+
 ---
 
 ### Solution
@@ -73,7 +111,8 @@ Define the following generic out-of-the-box tests whenever applies:
 - [dim_designers.sql](./core/dim_designers.sql)
 - [dim_mechanics.sql](./core/dim_mechanics.sql)
 - [dim_publishers.sql](./core/dim_publishers.sql)
-- [dim_rankings.sql](./core/dim_rankings.sql)
+- [dim_rankings.sql - materialized='table'](./core/dim_rankings.sql)
+- [dim_rankings.sql - materialized='incremental'](./core/dim_rankings_incremental.sql)
 - [_core__models.yml](./core/_core__models.yml)
 - [dbt_project.yml](dbt_project.yml)
 - [packages.yml](./packages.yml)
