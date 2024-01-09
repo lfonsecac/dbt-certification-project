@@ -10,3 +10,4 @@ boardgame_project: # name of the profile described on dbt_project.yml
       type: snowflake
       user: dbt
       warehouse: DBT_CERTIFICATION_PROJECT_WH
+  target: dev
