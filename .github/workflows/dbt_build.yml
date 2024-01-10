@@ -32,6 +32,8 @@ jobs:
       - name: Deploy & Test Models and Source freshness
         working-directory: ./dbt_finished_project
         run: |
+          dbt deps
           dbt source freshness --profiles-dir .
-          dbt deps --profiles-dir .
           dbt build -s +tag:daily+ --profiles-dir .
+          dbt run-operation drop_old_relations
+          
