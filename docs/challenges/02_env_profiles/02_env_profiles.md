@@ -33,6 +33,8 @@ source .env
 ---
 **Note:** In both scenarios you will have to execute the respective command every time you login again on your development environment.
 
+To find out more information about `environment variables` clik [here](https://docs.getdbt.com/docs/build/environment-variables) to access dbt documentation for more details.
+
 ---
 
 [Return to Project Challenges](../../../README.md#9-project-challenges)
