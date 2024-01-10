@@ -67,9 +67,11 @@ Runtime Error
 
 there is a missing definition on the `profiles.yml` file that tells dbt what is the `target` environment that he should use.
 
-The file should like this: 
+The file should look like this: 
 
 ![profiles.yml template](../../images/profiles_yml.png)
+
+In this scenario we only have 1 target environment defined, but we can have multiple environments added to the `profiles.yml` file which is the generic situation when working on real world project with `dev`, `qa`, `ci` and `prod` environments tipically.
 
 ---
 
