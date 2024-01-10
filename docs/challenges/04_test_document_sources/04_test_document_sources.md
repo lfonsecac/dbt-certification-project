@@ -47,6 +47,11 @@ To run tests on one source (and all of its tables):
 ```bash
 dbt test --select source:boardgame.reviews
 ``` 
+
+To find out more information about `tests` clik [here](https://docs.getdbt.com/docs/build/data-tests) to access dbt documentation for more details.
+
+To find out more information about `description` clik [here](https://docs.getdbt.com/reference/resource-properties/description) to access dbt documentation for more details.
+
 #### Issues that may occur
 **Note:** For some of the columns from the `Rankings` we have to activate a property called `quote` to enable quoting for those column names. That happens either because we are using reserved SQL expression names (like `rank`) or column names with spaces so it has to be quoted so Snowflake can interpret the expressions as a column name correctly.   
 You can find more information here: [dbt docs.](https://docs.getdbt.com/reference/resource-properties/quote)

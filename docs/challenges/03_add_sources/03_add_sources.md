@@ -28,6 +28,8 @@ If you're not already familiar with these files, be sure to check out the [docum
 
 Using the example above you should create the sources file following the [style guide](/docs/style_guide.md).
 
+To find out more information about `sources` clik [here](https://docs.getdbt.com/docs/build/sources) to access dbt documentation for more details.
+
 ---
 
 ### Solution
