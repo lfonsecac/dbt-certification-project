@@ -35,3 +35,5 @@ jobs:
           dbt deps
           dbt source freshness --profiles-dir .
           dbt build -s +tag:daily+ --profiles-dir .
+          dbt run-operation drop_old_relations
+          
