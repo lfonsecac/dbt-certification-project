@@ -22,7 +22,7 @@ Because these CSV files are located in your dbt repository, they are version con
 
 ### Task: Create a country codes table and a reference table to translate country names from users to country codes table
 
-In this scenario, we're going to use a list of mappings of country codes to country names using this [file](/Users/filipebalseiro/Downloads/projects/dbt-pt-capstone-project/docs/challenges/07_add_seeds/country_codes.csv).
+In this scenario, we're going to use a list of mappings of country codes to country names using this [file](country_codes.csv).
 
 You should copy this file to the `seed-paths` folder specified on your `dbt_project.yml` like shown below:
 
