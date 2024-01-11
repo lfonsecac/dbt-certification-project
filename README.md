@@ -307,7 +307,7 @@ In that scenario, if you want to to get access to that on your local machine, yo
      (use "git restore --staged <file>..." to unstage)
            modified:   ../README.md
   ```
-  2.2. If you get an output that your branch is up to date, then you can move to the next step
+  2.2. If you get an output that your branch is up to date and nothing to commit, then you can move to the next step
 
 3. Checkout of your branch to the main branch by running the command `git checkout main` 
 
