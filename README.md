@@ -309,7 +309,11 @@ In that scenario, if you want to to get access to that on your local machine, yo
   ```
   2.2. If you get an output that your branch is up to date and nothing to commit, then you can move to the next step
 
-3. Checkout of your branch to the main branch by running the command `git checkout main` 
+3. Checkout of your branch to the main branch by running the command `git checkout main` to switch to the main branch
+
+4. Finally run `git pull` to pull the latest version of main branch on remote repository to your local machine
+
+5. If you want to go back again to your working branch just run `git checkout feature_fbalseiro` (adjust to your branch name)
 
 
 ## 9. Project Challenges
