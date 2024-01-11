@@ -206,11 +206,11 @@ pip install -r requirements.txt
 
 When you clone the repository the dbt project was already initialized, so you can skip the command `dbt init`.
 
-After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt_certification_project:
+After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt folder:
 
 ``` bash
-# Change to dbt_certification_project folder
- cd dbt_certification_project/
+# Change to dbt project folder
+ cd dbt/
 
 # Rename the file sample-profiles.yml to profiles.yml
 cp sample-profiles.yml profiles.yml
@@ -277,6 +277,44 @@ graph BT;
     feature_x --> develop;
     develop --> main;
 ```
+
+
+### 8.2. How to get new updates from production to your branch
+
+As you're going through the project and working on your branch `ex: feature_fbalseiro` there can be new updates on `main` branch due to new features or challenges that have been added to the repository.
+
+In that scenario, if you want to to get access to that on your local machine, you can perform the following steps:
+
+1. Check first in which branch are you working with the command `git branch` and the branch should be identified with a `*` before the name, like this:
+```bash 
+❯ git branch                           
+  add-pr-template
+  add-snapshot
+  develop
+* feature_fbalseiro
+  github-cronjob
+  main
+```
+2. Check if you have all your files staged and pushed to the remote repository by running the command `git status`
+  2.1. If you get an output like the following you should first run `git push` to push your development to the remote repository branch:
+  ```bash 
+   ❯ git status
+   On branch develop
+   Your branch is ahead of 'origin/develop' by 1 commit.
+     (use "git push" to publish your local commits)
+   
+   Changes to be committed:
+     (use "git restore --staged <file>..." to unstage)
+           modified:   ../README.md
+  ```
+  2.2. If you get an output that your branch is up to date and nothing to commit, then you can move to the next step
+
+3. Checkout of your branch to the main branch by running the command `git checkout main` to switch to the main branch
+
+4. Finally run `git pull` to pull the latest version of main branch on remote repository to your local machine
+
+5. If you want to go back again to your working branch just run `git checkout feature_fbalseiro` (adjust to your branch name)
+
 
 ## 9. Project Challenges
 
