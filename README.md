@@ -206,11 +206,11 @@ pip install -r requirements.txt
 
 When you clone the repository the dbt project was already initialized, so you can skip the command `dbt init`.
 
-After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt_certification_project:
+After that, you need to use the `sample-profiles.yml` template file to create your own `profiles.yml` by running the following command inside dbt folder:
 
 ``` bash
-# Change to dbt_certification_project folder
- cd dbt_certification_project/
+# Change to dbt project folder
+ cd dbt/
 
 # Rename the file sample-profiles.yml to profiles.yml
 cp sample-profiles.yml profiles.yml
