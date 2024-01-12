@@ -67,8 +67,6 @@ In a scenario were the below DAG runs using two thread, with the *fail fast* arg
 
 ![dbt mini-DAG example](../../images/dbt_mini_dag_example.png)
 
-You can check [dbt docs](https://docs.getdbt.com/docs/build/hooks-operations#about-hooks) for more details about `hooks` command.
-
 To tackle this question, we’ll explore three scenarios using the hypothetical DAG, aiming to observe the differences between running it with a single thread and running it with two threads. The three scenarios are:
 
 - **Smooth Run:** Executing the DAG without any errors.
