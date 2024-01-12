@@ -341,6 +341,7 @@ In that scenario, if you want to to get access to that on your local machine, yo
 19. [Add Macros](./docs/challenges/19_add_macros/19_add_macros.md)
 20. [dbt run-operation](./docs/challenges/20_run_operation/20_run_operation.md)
 21. [Hooks](./docs/challenges/21_hooks/21_hooks.md)
+22. [Understanding DAGs](./docs/challenges/22_understanding_dags/22_understanding_dags.md)
 
 ## 10. Additional Content
 - [dbt Project Checklist](https://docs.google.com/spreadsheets/d/1-76_IaWnq9d6vPZjltZBHR-8kL5lnrqu/edit?usp=sharing&ouid=114687234302613403012&rtpof=true&sd=true)
