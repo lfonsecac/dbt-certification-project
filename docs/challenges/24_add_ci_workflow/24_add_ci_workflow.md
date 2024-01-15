@@ -54,7 +54,7 @@ If you want to learn more about GitHub Actions workflows, follow [this](https://
 
 The workflow is triggered automatically when there is a `pull request` action to the main branch.
 
-Check this video to see how it works.
+Check this [video](https://www.loom.com/share/8187c09713514f7bb8ec402a0dff4ec3?sid=6af4f3b1-1dc6-46fb-adfa-7a4533d53a77) to see how it works.
 
 
 ---
