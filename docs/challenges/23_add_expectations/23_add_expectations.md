@@ -40,7 +40,6 @@ We're going to apply this test to the following models:
 - dim_designers
 - dim_mechanics
 - dim_publishers
-- dim_rankings
 
 All the above tests should be compared to dim_boardgames using `boardgame_key`.
 
