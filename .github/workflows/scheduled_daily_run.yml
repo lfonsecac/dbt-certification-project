@@ -1,8 +1,10 @@
-name: dbt freshness & build
+name: Scheduled daily run
 
 on:
   schedule:
     - cron: '0 11 * * *'  # This schedule runs the workflow every day at 11:00AM UTC
+    branches:
+      - main
 
   workflow_dispatch:
 
