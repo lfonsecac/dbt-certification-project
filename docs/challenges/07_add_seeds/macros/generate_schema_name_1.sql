@@ -23,7 +23,7 @@
 
     {%- else -%}
 
-        {{ custom_schema_name | trim | upper}}
+        {{ custom_schema_name | trim }}
 
     {%- endif -%}
 

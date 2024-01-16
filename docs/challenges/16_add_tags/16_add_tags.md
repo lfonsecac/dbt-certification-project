@@ -79,9 +79,92 @@ We're going to apply these tags to the following models:
 
 - `staging`: to all staging models
 - `seed`: to all seeds
-- `daily`: to the model `stg_boardgames__rankings` and snapshot `rankings`
-- `static`: to all the other staging models
+- `daily`: to the model `stg_boardgames__rankings` and snapshot `rankings`, because these models are updated on a daily basis.
+- `static`: to all staging models
 - `intermediate`: to all intermediate models
+
+Test them out by running the appropriate `dbt run -s tag:<name_of_tag>`.
+
+Did you notice any problem on applying those tags?
+
+As we've mentioned earlier, tags are additive, which means that model `stg_boardgames__rankings` gets both `static` and `daily` tags.
+That was not our goal, and by using tags we have to use the `--exclude` flag to only run the `static` models and not the `daily` models.
+
+To achieve our goal, we need to use another concept called `selectors` that support more complex selection criteria.
+
+### YAML Selectors
+
+Write resource selectors in YAML, save them with a human-friendly name, and reference them using the `--selector` flag. 
+
+Selectors live in a top-level file named `selectors.yml`. Each must have a `name` and a `definition`, and can optionally define a `description` and `default` flag.
+
+```yaml
+selectors:
+  - name: nodes_to_joy
+    definition: ...
+  - name: nodes_to_a_grecian_urn
+    description: Attic shape with a fair attitude
+    default: true
+    definition: ...
+```
+
+#### Definitions
+Each definition is comprised of one or more arguments, which can be one of the following:
+
+- `CLI-style`: strings, representing CLI-style arguments
+- `Key-value`: pairs in the form method: value
+- `Full YAML`: fully specified dictionaries with items for method, value, operator-equivalent keywords, and support for exclude
+
+Use the `union` and `intersection` operator-equivalent keywords to organize multiple arguments.
+
+##### CLI-style
+```yaml
+definition:
+  'tag:nightly'
+```
+
+##### Key-value
+```yaml
+definition:
+  tag: nightly
+```
+
+##### Full YAML
+```yaml
+definition:
+  method: tag
+  value: nightly
+
+  # Optional keywords map to the `+` and `@` graph operators:
+
+  children: true | false
+  parents: true | false
+
+  children_depth: 1    # if children: true, degrees to include
+  parents_depth: 1     # if parents: true, degrees to include
+
+  childrens_parents: true | false     # @ operator
+
+  indirect_selection: eager | cautious | buildable | empty # include all tests selected indirectly? eager by default
+```
+
+To run a job using the `selector`:
+
+```bash
+dbt run --selector <name_of_selector>
+```
+
+You can check [dbt docs](https://docs.getdbt.com/reference/node-selection/yaml-selectors) for more details about selectors.
+
+## Task: Add `selectors.yml` to your project
+
+To solve the issue on the previous task about `static` and `daily` tags you're going to create a `selectors.yml` on the root folder of your dbt project with this selector:
+
+- name: static_staging_models
+- description: "Staging models with static data, not being updated."
+- definition: select models with `tag:static` and exclude `tag:daily`
+
+Try it out by running `dbt run --selector static_staging_models`
 
 ---
 
@@ -90,6 +173,7 @@ We're going to apply these tags to the following models:
 - [dbt_project.yml](dbt_project.yml)
 - [boardgames__rankings.sql](./snapshots/boardgames__rankings.sql)
 - [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
+- [selectors.yml](selectors.yml)
 
 ---
 
