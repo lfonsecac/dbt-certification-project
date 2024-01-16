@@ -77,6 +77,8 @@ Here is the default macro's code:
 {%- endmacro %}
 ```
 
+You can check [dbt docs](https://docs.getdbt.com/docs/build/custom-schemas) for more details about custom schemas.
+
 ## Task: Use a custom schema for seeds
 
 The goal is to define a custom schema for `seeds` tables.
@@ -100,7 +102,9 @@ seeds:
       +schema: seeds
 ```
 
-You can check [dbt docs](https://docs.getdbt.com/docs/build/custom-schemas) for more details about custom schemas.
+You can test this by running `dbt seed`.
+
+**Note:** When you reach this challenge you'll probably realize there is already a schema named `SEEDS` on Snowflake environment. Feel free to overwrite the tables from this schema because it is static data that have the same output, so there is no impact on the course.
 
 ---
 
