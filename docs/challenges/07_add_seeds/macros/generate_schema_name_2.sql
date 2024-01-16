@@ -16,7 +16,7 @@
 
 {% macro generate_schema_name(custom_schema_name, node) -%}
 
-    {% if target.name == 'prod' or node.resource_type == 'seed' %}
+    {% if node.resource_type == 'seed' %}
         {{ custom_schema_name | trim | upper }}
     {% else %}
         {{ target.schema }}
