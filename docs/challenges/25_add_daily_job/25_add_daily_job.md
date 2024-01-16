@@ -43,7 +43,7 @@ jobs:
         run: pip3 install dbt-snowflake
 
       - name: Deploy & Test Models and Source freshness
-        working-directory: ./dbt_finished_project
+        working-directory: ./dbt
         run: |
           dbt deps
           dbt source freshness --profiles-dir .
@@ -66,9 +66,7 @@ Let's a do a deep dive on each dbt command used on the above workflow:
 ### Trigger the workflow
 First, you should update the remote development branch by running `git push`.
 
-Checkout this [video tutorial](https://www.loom.com/share/3862212f88584756906b59aa573517e1?sid=0aeababd-7e35-4d13-9fca-159b4ac4cae4) on how to add GitHub Secrets to your repository.
-
-If you want to learn more about GitHub Actions workflows, follow [this](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow).
+Checkout this [video tutorial](https://www.loom.com/share/3ab7adf0ef964d679abce78abcac1f34?sid=54d61414-58eb-41b4-8f68-e24729426e5a) on how to trigger the workflow manually.
 
 ---
 
