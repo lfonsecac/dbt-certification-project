@@ -5,8 +5,8 @@ Like we've seen on the [previous challenge](../24_add_ci_workflow/24_add_ci_work
 
 In this challenge, we're using a cron job to schedule a daily run of our dbt project.
 
-### Add a `scheduled_daily_run.yml` to workflows folder
-Create a new file named `scheduled_daily_run.yml` on the workflows folder (inside `.github` folder) and copy the content below:
+### Add a `scheduled_daily_run_<fbalseiro>.yml` to workflows folder
+Create a new file named `scheduled_daily_run_<fbalseiro>.yml` on the workflows folder (inside `.github` folder) and copy the content below:
 
 ```yaml
 name: Scheduled daily run
@@ -14,8 +14,6 @@ name: Scheduled daily run
 on:
   schedule:
     - cron: '0 11 * * *'  # This schedule runs the workflow every day at 11:00AM UTC
-    branches:
-      - 'develop'
 
   workflow_dispatch:
 
@@ -33,6 +31,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: feature_fbalseiro
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -43,7 +43,7 @@ jobs:
         run: pip3 install dbt-snowflake
 
       - name: Deploy & Test Models and Source freshness
-        working-directory: ./dbt
+        working-directory: ./dbt_finished_project
         run: |
           dbt deps
           dbt source freshness --profiles-dir .
@@ -54,7 +54,7 @@ jobs:
 We're using the schedule with cron as an event to trigger the workflow on a daily basis.
 I've also added the `workflow_dispatch:` key that let's you trigger the workflow manually to test it by yourself.
 
-I've also added the `branches` property so you can specify your github development branch to schedule this workflow to run on that branch.
+I've also added the `ref` property under the `Checkout repository` step so you can specify your github development branch to schedule this workflow to run on that branch.
 
 Let's a do a deep dive on each dbt command used on the above workflow:
 
@@ -74,7 +74,7 @@ If you want to learn more about GitHub Actions workflows, follow [this](https://
 
 ### Solution
 
-- [scheduled_daily_run.yml](scheduled_daily_run.yml)
+- [scheduled_daily_run_fbalseiro.yml](scheduled_daily_run_fbalseiro.yml)
 
 ---
 

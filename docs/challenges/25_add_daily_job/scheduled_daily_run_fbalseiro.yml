@@ -3,8 +3,6 @@ name: Scheduled daily run
 on:
   schedule:
     - cron: '0 11 * * *'  # This schedule runs the workflow every day at 11:00AM UTC
-    branches:
-      - 'develop'
 
   workflow_dispatch:
 
@@ -22,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: feature_fbalseiro
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -32,9 +32,10 @@ jobs:
         run: pip3 install dbt-snowflake
 
       - name: Deploy & Test Models and Source freshness
-        working-directory: ./dbt
+        working-directory: ./dbt_finished_project
         run: |
           dbt deps
           dbt source freshness --profiles-dir .
           dbt build -s +tag:daily+ --profiles-dir .
           dbt run-operation drop_old_relations
+          
