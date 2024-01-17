@@ -5,6 +5,6 @@ services:
     build:
       context: .
     volumes:
-      - ./dbt_certification_project:/opt/develop
+      - .:/opt/develop
     ports:
       - "8080:8080"
