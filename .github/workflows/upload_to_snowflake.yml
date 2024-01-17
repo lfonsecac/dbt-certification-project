@@ -34,3 +34,13 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
           SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+
+  rerun-failed-jobs:
+    runs-on: ubuntu-latest
+    needs: upload
+    if: failure()
+    steps:
+      - name: Rerun failed jobs in the current workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run rerun ${{ github.run_id }} --failed

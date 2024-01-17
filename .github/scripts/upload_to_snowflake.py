@@ -83,4 +83,4 @@ if __name__ == "__main__":
         os.remove(local_file_path)
 
     else:
-        print(f"Failed to download CSV file. Status code: {response.status_code}")
+        raise Exception(f"Failed to download CSV file. Status code: {response.status_code}")
