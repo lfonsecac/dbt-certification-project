@@ -55,6 +55,8 @@ To do that the company relies on your expertise to perform insights on the datas
 
 The following steps will help you to configure your mac for Python development, automation, and command line use.
 
+You can also check this [recorded session](https://hakkoda-io.zoom.us/rec/share/LwqsBWVikejAkrXlBmSzwJsotuL68ymm1mXTfI1QgLn3Dw1ZG7BjSsTisF3WejY.xopJ495myIIIxwSt?startTime=1704362599000) that goes through project setup step-by-step. (Passcode: 7%#DU9#b)
+
 ### 1.1 Setup your Mac
 
 You should install some command line tools, and configure your terminal and editor:
