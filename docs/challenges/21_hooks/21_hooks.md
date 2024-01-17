@@ -65,6 +65,7 @@ values ('6ee10edd-5478-4366-9ca8-eb1ba0303ddb', 'dim_rankings', 'model_start', c
 ### Solution
 
 - [dbt_audits.sql](dbt_audits.sql)
+- [dbt_project.yml](dbt_project.yml)
 
 ---
 
