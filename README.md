@@ -15,6 +15,7 @@ The main goal of this project is to deliver the tools and practice required to p
       + [Generate a New SSH Key](#generate-a-new-ssh-key)
       + [Add the SSH key to your GitHub account](#add-the-ssh-key-to-your-github-account)
       + [Git Clone dbt Certification Project](#git-clone-dbt-certification-project)
+   * [Docker Version (Optional)](#docker-version---optional)
    * [3. Setup Your Python Environment](#3-setup-your-python-environment)
    * [4. Activate Your Virtual Environment](#4-activate-your-virtual-environment)
    * [5. Install Python packages required](#5-install-python-packages-required)
@@ -169,6 +170,20 @@ cd Develop
 # Clone project repository (NOTE: uses SSH key)
 git clone git@github.com:Hakkoda1/dbt-certification-project.git
 ```
+---
+## Docker Version - Optional
+
+There is a docker version available on this repository that you can use instead of setting up a python environment on your local machine.
+
+Check this [video tutorial](https://www.loom.com/share/9e939165c7dd4ae5a4c3df10a2dfecf5?sid=cd9230c1-de4b-4c0b-9b3e-8254cdfe3f73) on how to setup the docker-compose.
+
+To install docker desktop on Mac you can use this [url](https://docs.docker.com/desktop/install/mac-install/).
+
+**Note:** If you choose this path, you can jump directly to [chapter 6](#6-setup-dbt-project) of the tutorial.
+
+
+
+---
 
 ## 3. Setup Your Python Environment
 
