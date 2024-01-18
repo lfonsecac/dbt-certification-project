@@ -113,7 +113,7 @@ Each definition is comprised of one or more arguments, which can be one of the f
 
 - `CLI-style`: strings, representing CLI-style arguments
 - `Key-value`: pairs in the form method: value
-- `Full YAML`: fully specified dictionaries with items for method, value, operator-equivalent keywords, and support for exclude
+- `Full YAML`: fully specified dictionaries with items for method, value, operator-equivalent keywords, and support for `exclude`
 
 Use the `union` and `intersection` operator-equivalent keywords to organize multiple arguments.
 
@@ -122,6 +122,10 @@ Use the `union` and `intersection` operator-equivalent keywords to organize mult
 definition:
   'tag:nightly'
 ```
+
+**Note:** When using the `CLI-style` (strings) don't leave any whitespaces on the value between the quotes (`''`). 
+❌ `'tag: nightly'` 
+✅ `'tag:nightly'`
 
 ##### Key-value
 ```yaml
@@ -148,6 +152,27 @@ definition:
   indirect_selection: eager | cautious | buildable | empty # include all tests selected indirectly? eager by default
 ```
 
+##### Exclude
+
+The `exclude` keyword is only supported by fully-qualified dictionaries. It may be passed as an argument to each dictionary, or as an item in a `union`. The following are equivalent:
+
+```yaml
+- method: tag
+  value: nightly
+  exclude:
+    - "tag:daily"
+```
+
+```yaml
+- union:
+    - method: tag
+      value: nightly
+    - exclude:
+       - method: tag
+         value: daily
+```
+
+
 To run a job using the `selector`:
 
 ```bash
@@ -158,13 +183,19 @@ You can check [dbt docs](https://docs.getdbt.com/reference/node-selection/yaml-s
 
 ## Task: Add `selectors.yml` to your project
 
-To solve the issue on the previous task about `static` and `daily` tags you're going to create a `selectors.yml` on the root folder of your dbt project with this selector:
+To solve the issue on the previous task about `static` and `daily` tags you're going to create a `selectors.yml` file on the root folder of your dbt project with this selector:
 
 - name: static_staging_models
 - description: "Staging models with static data, not being updated."
 - definition: select models with `tag:static` and exclude `tag:daily`
 
-Try it out by running `dbt run --selector static_staging_models`
+Try to use these 4 different approaches to achieve the desired result:
+- Use `union` operator and `CLI-style` definition
+- Use `union` operator and `Key-value` definition
+- Use `union` operator and `Full YAML` definition
+- Use `Full YAML` definition without `union`
+
+Try it out by running `dbt run --selector static_staging_models`.
 
 ---
 
@@ -173,7 +204,10 @@ Try it out by running `dbt run --selector static_staging_models`
 - [dbt_project.yml](dbt_project.yml)
 - [boardgames__rankings.sql](./snapshots/boardgames__rankings.sql)
 - [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
-- [selectors.yml](selectors.yml)
+- `CLI-style` definition: [selectors.yml](./selectors_cli_style/selectors.yml)
+- `Key-value` definition: [selectors.yml](./selectors_key_value/selectors.yml)
+- `Full YAML` definition using `union`: [selectors.yml](./selectors_union_full_yaml/selectors.yml)
+- `Full YAML` definition without `union`: [selectors.yml](./selectors_full_yaml/selectors.yml)
 
 ---
 
