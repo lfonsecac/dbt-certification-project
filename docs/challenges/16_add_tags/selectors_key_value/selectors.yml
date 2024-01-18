@@ -3,8 +3,6 @@ selectors:
     description: "Staging models with static data, not being updated."
     definition: 
       union:
-        - method: tag
-          value: static
+        - tag: static
         - exclude: 
-            - method: tag
-              value: daily
+          - tag: daily

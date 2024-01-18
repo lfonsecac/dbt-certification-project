@@ -11,6 +11,47 @@ You can check [dbt docs](https://docs.getdbt.com/docs/build/jinja-macros#macros)
 
 ## Task: Use a macro to implement a SQL script with multiple CTEs
 
+We'll define a macro that builds a SQL script with multiple CTEs by providing the models names, alias and the final select with the join conditions.
+
+So, instead of defining a model using this SQL code:
+
+```sql
+WITH my_alias_for_model1 AS (
+
+    SELECT * 
+    FROM {{ ref('model1') }}
+
+), my_alias_for_model2 AS (
+
+    SELECT * 
+    FROM {{ ref('model2') }}
+
+) 
+select 
+    *
+from my_alias_for_model1
+join my_alias_for_model2
+    on my_alias_for_model1.key = my_alias_for_model2.key
+```
+
+We can call the macro named `simple_cte` by applying the following structure:
+```sql
+{{ 
+    simple_cte(
+        [
+            ('my_alias_for_model1', 'model1'),
+            ('my_alias_for_model2', 'model2')
+        ]
+    )
+
+}} 
+select 
+    *
+from my_alias_for_model1
+join my_alias_for_model2
+    on my_alias_for_model1.key = my_alias_for_model2.key
+```
+
 Credits to the macro creators. [(source)](https://gitlab.com/gitlab-data/analytics/-/blob/master/transform/snowflake-dbt/macros/utils/simple_cte.sql)
 
 ### Steps to reproduce it:
@@ -33,18 +74,20 @@ call the macro:
 {{ 
     simple_cte(
         [
-            ('my_alias_for_model1', 'model1'),
-            ('my_alias_for_model2', 'model2')
+            ('reviews', 'stg_boardgames__reviews'),
+            ('users', 'stg_boardgames__users')
         ]
     )
 
 }} 
 select 
     *
-from my_alias_for_model1
-join my_alias_for_model2
-    on my_alias_for_model1.key = my_alias_for_model2.key
+from reviews
+join users
+    on reviews.<key> = users.<key>
 ```
+
+Please change the `<key>` to the right value to apply the joining condition on these models.
 
 #### 5) Finally, before running `dbt run/build --select <example.sql>`
 run `dbt compile --select <example.sql>` and take a look at the output
