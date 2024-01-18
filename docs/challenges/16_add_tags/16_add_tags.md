@@ -124,8 +124,8 @@ definition:
 ```
 
 **Note:** When using the `CLI-style` (strings) don't leave any whitespaces on the value between the quotes (`''`). 
-❌ `'tag: nightly'` 
-✅ `'tag:nightly'`
+- ❌ `'tag: nightly'` 
+- ✅ `'tag:nightly'`
 
 ##### Key-value
 ```yaml
