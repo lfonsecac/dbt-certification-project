@@ -16,7 +16,7 @@
           concat_ws('.', table_catalog, table_schema, table_name) as relation_name
         from 
           {{ target.database }}.information_schema.tables
-        where table_schema ilike '{{ target.schema }}%'
+        where table_schema in ('{{ target.schema }}', 'dbt_ci')
           and table_name not in
             ({%- for model in current_models -%}
                 '{{ model.upper() }}'
