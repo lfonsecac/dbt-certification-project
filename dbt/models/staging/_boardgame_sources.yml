@@ -111,6 +111,10 @@ sources:
                 - not_null
 
         - name: rankings
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+          loaded_at_field: '"updated_at"'
           columns:
             - name: id
               description: Boardgame unique identifier

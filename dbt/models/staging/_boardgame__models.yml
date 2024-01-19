@@ -1,7 +1,6 @@
 version: 2
 
 models:
-models:
   - name: stg_boardgame__artists
   - name: stg_boardgame__boardgames
   - name: stg_boardgame__categories
@@ -11,3 +10,5 @@ models:
   - name: stg_boardgame__rankings
   - name: stg_boardgame__reviews
   - name: stg_boardgame__users
+  - name: stg_country_codes_users_ref
+  - name: stg_country_codes
