@@ -11,6 +11,18 @@
     )
 }}
 
-select * from {{ source('boardgame', 'rankings') }}
+select 
+    id,
+    "Name",
+    "Year",
+    "Rank",
+    "Average",
+    "Bayes average",
+    "Users rated",
+    url,
+    "Thumbnail",
+    "updated_at" as updated_at
+
+from {{ source('boardgame', 'rankings') }}
 
 {% endsnapshot %}

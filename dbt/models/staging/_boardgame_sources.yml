@@ -174,3 +174,17 @@ sources:
                 - not_null
             - name: country
               description: Country where the user was born
+        - name: reviews
+          columns:
+            - name: Id
+              description: Boardgame unique identifier
+              tests:
+                - not_null
+            - name: User
+              description: Username registered on boardgamegeek website
+              tests:
+                - not_null
+            - name: Rating
+              description: Number from 1-10 to rate the boardgame
+              tests:
+                - not_null

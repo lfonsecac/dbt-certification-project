@@ -1,0 +1,13 @@
+version: 2
+
+models:
+models:
+  - name: stg_boardgame__artists
+  - name: stg_boardgame__boardgames
+  - name: stg_boardgame__categories
+  - name: stg_boardgame__designers
+  - name: stg_boardgame__mechanics
+  - name: stg_boardgame__publishers
+  - name: stg_boardgame__rankings
+  - name: stg_boardgame__reviews
+  - name: stg_boardgame__users
