@@ -23,6 +23,7 @@ The main goal of this project is to deliver the tools and practice required to p
    * [7. Install dbt Power Extension for VSCode](#7-install-dbt-power-extension-for-vscode)
    * [8. How to use Git on this Project](#8-how-to-use-git-on-this-project)
       + [8.1.dbt Certification Project Git Workflow](#81dbt-certification-project-git-workflow)
+      + [8.2.How to get new updates from production to your branch](#82-how-to-get-new-updates-from-production-to-your-branch)
    * [9. Project Challenges](#9-project-challenges)
    * [10. Additional Content](#10-additional-content)
 
