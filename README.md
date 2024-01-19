@@ -23,6 +23,7 @@ The main goal of this project is to deliver the tools and practice required to p
    * [7. Install dbt Power Extension for VSCode](#7-install-dbt-power-extension-for-vscode)
    * [8. How to use Git on this Project](#8-how-to-use-git-on-this-project)
       + [8.1.dbt Certification Project Git Workflow](#81dbt-certification-project-git-workflow)
+      + [8.2.How to get new updates from production to your branch](#82-how-to-get-new-updates-from-production-to-your-branch)
    * [9. Project Challenges](#9-project-challenges)
    * [10. Additional Content](#10-additional-content)
 
@@ -364,6 +365,7 @@ In that scenario, if you want to to get access to that on your local machine, yo
 23. [Add dbt Expectations](./docs/challenges/23_add_expectations/23_add_expectations.md)
 24. [Add CI Workflow](./docs/challenges/24_add_ci_workflow/24_add_ci_workflow.md)
 25. [Add Schedule Daily Run Workflow](./docs/challenges/25_add_daily_job/25_add_daily_job.md)
+26. [Add Deploy to Production (Post-Merge) Workflow](./docs/challenges/26_add_deploy_to_prod/26_add_deploy_to_prod.md)
 
 
 

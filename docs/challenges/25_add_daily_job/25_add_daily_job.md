@@ -6,7 +6,7 @@ Like we've seen on the [previous challenge](../24_add_ci_workflow/24_add_ci_work
 In this challenge, we're using a cron job to schedule a daily run of our dbt project.
 
 ### Add a `scheduled_daily_run_<fbalseiro>.yml` to workflows folder
-Create a new file named `scheduled_daily_run_<fbalseiro>.yml` on the workflows folder (inside `.github` folder) and copy the content below:
+Create a new file named `scheduled_daily_run_<fbalseiro>.yml` (adjust that to your dbt development schema name) on the workflows folder (inside `.github` folder) and copy the content below:
 
 ```yaml
 name: Scheduled daily run

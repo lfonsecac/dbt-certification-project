@@ -2,7 +2,7 @@
 
 {{
     config(
-      target_schema='snapshots',
+      target_schema='[your-schema]', --dbt_[first-initial-last-name] (ex: dbt_fbalseiro)
       unique_key='id',
       strategy='timestamp',
       updated_at='updated_at'
