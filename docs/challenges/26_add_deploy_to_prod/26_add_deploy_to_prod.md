@@ -54,6 +54,48 @@ Let's a do a deep dive on each dbt command used on the above workflow:
 - `dbt build --profiles-dir . --target prod`: Builds all the models using the `profiles.yml` file on the current working-directory and using the `production` environment as the target. 
 - `dbt run-operation drop_old_relations`: Invokes the macro `drop_old_relations` to drop materializations on Snowflake that don't have a dbt model associated to it. 
 
+### Add a prod environment to your `profiles.yml`
+To make sure that dbt can build the project to `--target prod` you have to add that environment properties into your `profiles.yml`.
+Your file should look similar to this:
+
+```yaml
+# profiles.yml
+boardgame_project:
+  outputs:
+    dev:
+      account: jsa18243
+      database: BOARDGAME
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: transform
+      schema: dbt_fbalseiro
+      threads: 4
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: DBT_CERTIFICATION_PROJECT_WH
+    ci:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      schema: dbt_ci
+      threads: 4
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+    prod:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      schema: dbt_prod
+      threads: 4
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+  target: dev
+
+```
+
 ### Trigger the workflow
 First, you should update the remote development branch by running `git push`.
 
