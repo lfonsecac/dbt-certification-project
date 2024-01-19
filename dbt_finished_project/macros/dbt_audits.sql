@@ -2,12 +2,12 @@
 
 {% if run_activity in ['model_start', 'model_end']%}
     insert into {{ this.database }}.{{ this.schema }}.dbt_audit 
-    values ('{{ invocation_id }}', '{{ this.name }}', '{{ run_activity }}', current_timestamp());
+    values ('{{ invocation_id }}', '{{ this.name }}', '{{ run_activity }}', sysdate());
 
 {% else %}
 
     insert into {{ target.database }}.{{ target.schema }}.dbt_audit 
-    values ('{{ invocation_id }}', '{{ this.name }}', '{{ run_activity }}', current_timestamp());
+    values ('{{ invocation_id }}', '{{ this.name }}', '{{ run_activity }}', sysdate());
 
 {% endif %}
 
