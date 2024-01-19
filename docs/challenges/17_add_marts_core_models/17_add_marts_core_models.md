@@ -65,6 +65,41 @@ Define the following generic out-of-the-box tests whenever applies:
 ### Change materialization of dim_rankings to incremental
 Incremental models are built as tables in your data warehouse. The first time a model is run, the table is built by transforming all rows of source data. On subsequent runs, dbt transforms only the rows in your source data that you tell dbt to filter for, inserting them into the target table which is the table that has already been built.
 
+**Reminder:** Not only do we need to insert the new records into the target table from daily updates, but we also have to adjust these two columns from records of previous updates:
+- `is_current`
+- `valid_to` 
+
+Let's see the following data from `stg_boardgames__rankings` model for `boardgame_id = 1`:
+
+|            RANKING_KEY           | BOARDGAME_ID | BOARDGAME_RANK | UPDATED_AT              | VALID_FROM              | VALID_TO                | IS_CURRENT |
+|:--------------------------------:|:------------:|----------------|-------------------------|-------------------------|-------------------------|------------|
+| 0e0c2310ff279d1f38ccddfc323baeb3 | 1            | 406            | 2024-01-03 17:55:26.883 | 2024-01-03 17:55:26.883 | 2024-01-04 10:03:34.847 | FALSE      |
+| 7f96d1278056db27a4742737d04075b8 | 1            | 406            | 2024-01-04 10:03:34.847 | 2024-01-04 10:03:34.847 | 2024-01-05 10:03:22.027 | FALSE      |
+| c8832b19ac1bee4cace31139c73bed0d | 1            | 407            | 2024-01-05 10:03:22.027 | 2024-01-05 10:03:22.027 | 2024-01-06 10:03:23.305 | FALSE      |
+| 213d4cd86bc71e961c8b2e43b79c1be4 | 1            | 407            | 2024-01-06 10:03:23.305 | 2024-01-06 10:03:23.305 | 2024-01-08 09:23:00.513 | FALSE      |
+| 5c4c02d7a80f82d8be2baea28444af3c | 1            | 407            | 2024-01-08 09:23:00.513 | 2024-01-08 09:23:00.513 | 2024-01-08 10:03:34.912 | FALSE      |
+| e39fda99088c2001dac9b83a620ac328 | 1            | 405            | 2024-01-08 10:03:34.912 | 2024-01-08 10:03:34.912 | 2024-01-09 12:14:34.614 | FALSE      |
+| c90f7d4a0b46ee775406f186b6e0be72 | 1            | 406            | 2024-01-09 12:14:34.614 | 2024-01-09 12:14:34.614 | 2024-01-10 10:03:22.031 | FALSE      |
+| 0573ae96dd543c9806df399aa9315284 | 1            | 406            | 2024-01-10 10:03:22.031 | 2024-01-10 10:03:22.031 | 2024-01-11 10:03:30.920 | FALSE      |
+| 7bcdb3cc8de2b81979c0cb936f5bd39c | 1            | 406            | 2024-01-11 10:03:30.920 | 2024-01-11 10:03:30.920 | 2024-01-12 10:03:42.098 | FALSE      |
+| 97aa606612459e73600e49d94520cb36 | 1            | 406            | 2024-01-12 10:03:42.098 | 2024-01-12 10:03:42.098 | 2024-01-13 10:03:17.592 | FALSE      |
+| 6147ea2b74767c2967e8e2092221a76c | 1            | 406            | 2024-01-13 10:03:17.592 | 2024-01-13 10:03:17.592 | 2024-01-14 10:03:20.833 | FALSE      |
+| e79e24b5163a8192fadf591a715648bd | 1            | 406            | 2024-01-14 10:03:20.833 | 2024-01-14 10:03:20.833 | 2024-01-15 10:03:38.702 | FALSE      |
+| a2b458ede712a6d2d9a775c1764363bd | 1            | 406            | 2024-01-15 10:03:38.702 | 2024-01-15 10:03:38.702 | 2024-01-16 10:03:35.589 | FALSE      |
+| 2af39cde3a6812acff6e432349e9fa22 | 1            | 406            | 2024-01-16 10:03:35.589 | 2024-01-16 10:03:35.589 | 2024-01-17 10:03:39.218 | FALSE      |
+| f41abd878272f0fab60f2763f7372811 | 1            | 406            | 2024-01-17 10:03:39.218 | 2024-01-17 10:03:39.218 | 2024-01-18 10:03:34.641 | FALSE      |
+| a40c33a86290217ac18595952d955459 | 1            | 406            | 2024-01-18 10:03:34.641 | 2024-01-18 10:03:34.641 | 2024-01-19 10:03:34.534 | FALSE      |
+| 400bb235b081d2f1223715406b37016e | 1            | 407            | 2024-01-19 10:03:34.534 | 2024-01-19 10:03:34.534 | 9999-12-31 00:00:00.000 | TRUE       |
+
+As you can see, the most recent record has the values:
+- `is_current` = true
+- `valid_to` = '9999-12-31 00:00:00.000'
+
+When the next update is performed and if we only append the new records to the table, using the `incremental` materialization, what would happen to the records from the previous day?
+- Those records wouldn't be updated, so it would keep on getting multiple records for the same `boardgame_id` with duplicate values for `is_current` and `valid_to` columns.
+
+To solve that issue, we also have to implement an `incremental_strategy` to merge those updates to records already existing on the table.
+
 #### Using incremental materializations
 To use incremental models you need to:
 - Define a config block with `materialized='incremental'`
@@ -97,7 +132,96 @@ from raw_app_data.events
 {% endif %}
 ```
 
+##### Define incremental strategy
+The `incremental_strategy` config can either be specified directly on single models, or for all models in your `dbt_project.yml` file:
+
+```yaml
+# dbt_project.yml
+...
+
+models:
+  +incremental_strategy: "insert_overwrite"
+```
+
+or:
+
+```sql
+{{
+  -- my_model.sql
+  config(
+    materialized='incremental',
+    unique_key='date_day',
+    incremental_strategy='merge',
+    ...
+  )
+}}
+
+select ...
+```
+
+If you are using the `merge` strategy and have specified a unique_key, by default, dbt will entirely overwrite matched rows with new values.
+
+To avoid that, you may optionally pass a list of column names to a `merge_update_columns` config. In that case, dbt will update *only* the columns specified by the config, and keep the previous values of other columns.
+
+```sql
+{{
+    -- my_model.sql
+  config(
+    materialized = 'incremental',
+    unique_key = 'id',
+    merge_update_columns = ['email', 'ip_address'],
+    ...
+  )
+}}
+
+select ...
+```
+
+Alternatively, you can specify a list of columns to exclude from being updated by passing a list of column names to a `merge_exclude_columns` config.
+
+**Important:** To be able to update and merge with data from previous records, we have to use a different filter condition.
+The following doesn't work because it will only search for new records:
+
+```sql
+--my_model.sql
+...
+
+{% if is_incremental() %}
+
+  -- this filter will only be applied on an incremental run
+  -- (uses > to include records whose timestamp occurred since the last run of this model)
+  where event_time > (select max(event_time) from {{ this }})
+
+{% endif %}
+```
+
+We're going to use the following filter condition to look only for the last 3 days:
+```sql
+--my_model.sql
+...
+
+{% if is_incremental() %}
+
+  -- this filter will only be applied on an incremental run
+  -- (uses >= to include records arriving later than the previous 3 days)
+  where updated_at > dateadd(day, -3, current_date)
+
+{% endif %}
+```
+
+
+
 You can check [dbt docs](https://docs.getdbt.com/docs/build/incremental-models) for more details about incremental models.
+
+### Task: Use `incremental_strategy`=merge for `dim_rankings`
+Now it's time to apply the features showed above.
+
+We want to configure the following:
+- **incremental_strategy:** merge
+- **columns to be updated:**
+  - `is_current`
+  - `valid_to`
+- apply filter condition to update only records from the last 3 days 
 
 ---
 
