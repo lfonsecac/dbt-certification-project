@@ -365,6 +365,7 @@ In that scenario, if you want to to get access to that on your local machine, yo
 23. [Add dbt Expectations](./docs/challenges/23_add_expectations/23_add_expectations.md)
 24. [Add CI Workflow](./docs/challenges/24_add_ci_workflow/24_add_ci_workflow.md)
 25. [Add Schedule Daily Run Workflow](./docs/challenges/25_add_daily_job/25_add_daily_job.md)
+26. [Add Deploy to Production (Post-Merge) Workflow](./docs/challenges/26_add_deploy_to_prod/26_add_deploy_to_prod.md)
 
 
 

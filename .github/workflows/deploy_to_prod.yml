@@ -1,0 +1,36 @@
+name: Deploy to Prod (Post Merge)
+
+on:
+  pull_request:
+    types:
+      - closed
+
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      DBT_USER: ${{ secrets.DBT_USER }}
+      DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dbt
+        run: pip3 install dbt-snowflake
+
+      - name: Deploy & Test Models and Source freshness (PROD)
+        working-directory: ./dbt_finished_project
+        run: |
+          dbt deps
+          dbt source freshness --profiles-dir . --target prod
+          dbt build --profiles-dir . --target prod
+          dbt run-operation drop_old_relations
