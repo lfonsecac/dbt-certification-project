@@ -7,6 +7,7 @@ models:
       - name: boardgame_avg_rating
         tests:
           - accepted_values_between_1_10:
+              name: unexpected_boardgame_avg_rating
               config:
                 severity: warn
                 warn_if: ">1000"
@@ -18,8 +19,8 @@ models:
     columns:
       - name: boardgame_avg_rating
         tests:
-          - accepted_values_between_1_10
-
+          - accepted_values_between_1_10:
+              name: unexpected_rankings_avg_rating
       - name: boardgame_bayes_avg_rating
         tests:
           - accepted_values_between_1_10
@@ -27,7 +28,8 @@ models:
     columns:
       - name: review_rating
         tests:
-          - accepted_values_between_1_10
+          - accepted_values_between_1_10:
+              name: unexpected_review_rating
   - name: stg_boardgame__users
   - name: stg_country_codes_users_ref
   - name: stg_country_codes

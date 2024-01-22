@@ -33,6 +33,7 @@ sources:
               tests:
                 - not_null
                 - accepted_values:
+                    name: unexpected_boardgame_type
                     values: [bgsleeve, boardgame, boardgameaccessory, boardgameexpansion, boardgameissue, puzzle, rpgissue, rpgitem, videogame, videogamecompilation, videogameexpansion, videogamehardware]
             - name: rating
               description: Average from all the ratings from the reviews
