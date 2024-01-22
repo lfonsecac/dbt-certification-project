@@ -38,9 +38,9 @@ jobs:
           dbt docs generate
       
       - name: Deploy to GitHub Pages
+        working-directory: ./dbt_finished_project
         if: success()
         uses: crazy-max/ghaction-github-pages@v4
-        working-directory: ./dbt_finished_project
         with:
           target_branch: gh-pages
           build_dir: target
