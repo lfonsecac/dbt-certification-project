@@ -30,4 +30,4 @@ boardgame_project:
       type: snowflake
       user: "{{ env_var('DBT_USER') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
-  target: dev
+  target: prod

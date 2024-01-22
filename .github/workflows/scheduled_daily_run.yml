@@ -34,8 +34,8 @@ jobs:
         working-directory: ./dbt_finished_project
         run: |
           dbt deps
-          dbt source freshness --profiles-dir . --target prod
-          dbt build -s +tag:daily+ --profiles-dir . --target prod
+          dbt source freshness --profiles-dir .
+          dbt build -s +tag:daily+ --profiles-dir .
           dbt run-operation drop_old_relations
           dbt docs generate
 
