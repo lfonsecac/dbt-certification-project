@@ -36,6 +36,7 @@ jobs:
           dbt deps
           dbt build --profiles-dir . --target ci
           dbt docs generate
+          python dbt_docs_gen.py
       
       - name: Deploy to GitHub Pages
         if: success()
