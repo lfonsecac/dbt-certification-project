@@ -44,6 +44,8 @@ models:
   dbt_certification_project:
     staging:
       +materialzied: view
+    intermediate:
+      +materiazlied: ephemeral
 
 seeds:
   dbt_certification_project:

@@ -6,7 +6,7 @@ source as (
 
 transformed as (
     select
-        Id as review_id,
+        Id as boardgame_id,
         User as review_user,
         
         cast(
