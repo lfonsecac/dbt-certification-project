@@ -8,13 +8,27 @@ transformed as (
     select
         Game_Id as boardgame_id,
         Name as boardgame_name,
-        Type as boardgame_type,
-        Rating as boardgame_rating,
-
+        
         case
-            when Weight = 'nan' then -1
-            else Weight
-        end as boardgame_weight,
+            when type = 'boardgame' then '{{ var("boardgame_type") }}'
+            else 'not boardgame'
+        end as boardgame_type,
+        
+        cast(
+            case
+                when Rating = 'nan' then 1
+                when Rating < 1 then 1
+                else Rating
+            end as float
+        ) as boardgame_avg_rating,
+
+        cast(
+            case
+                when Weight = 'nan' then 1
+                when Weight < 1 then 1
+                else Weight
+            end as float
+        ) as boardgame_avg_weight,
 
         Year_published as boardgame_year_published,
 

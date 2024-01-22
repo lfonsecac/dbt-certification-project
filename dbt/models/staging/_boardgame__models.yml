@@ -3,12 +3,27 @@ version: 2
 models:
   - name: stg_boardgame__artists
   - name: stg_boardgame__boardgames
+    columns:
+      - name: boardgame_avg_rating
+        tests:
+          - accepted_values_between_1_10
   - name: stg_boardgame__categories
   - name: stg_boardgame__designers
   - name: stg_boardgame__mechanics
   - name: stg_boardgame__publishers
   - name: stg_boardgame__rankings
+    columns:
+      - name: boardgame_avg_rating
+        tests:
+          - accepted_values_between_1_10
+      - name: boardgame_bayes_avg_rating
+        tests:
+          - accepted_values_between_1_10
   - name: stg_boardgame__reviews
+    columns:
+      - name: review_rating
+        tests:
+          - accepted_values_between_1_10
   - name: stg_boardgame__users
   - name: stg_country_codes_users_ref
   - name: stg_country_codes

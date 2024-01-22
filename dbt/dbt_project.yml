@@ -12,6 +12,11 @@ profile: 'boardgame_project'
 # Define variables here
 vars:
   the_distant_future: '9999-12-31'
+  boardgame_type: 'boardgame'
+  number_unknown: -1
+  min_accepted_num: 1
+  unknown: 'Unknown'
+
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be

@@ -8,7 +8,14 @@ transformed as (
     select
         Id as review_id,
         User as review_user,
-        cast(Rating as int) as review_rating
+        
+        cast(
+            case
+                when Rating < 1 then 1
+                else Rating
+            end as int
+        ) as review_rating
+
     from source
 )
 

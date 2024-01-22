@@ -3,5 +3,5 @@
 select
     country_name,
     country_code
-from {{ ref('stg_country_codes' )}}
+from {{ ref('stg_country_codes')}}
 where length(country_code) != 3
