@@ -33,7 +33,15 @@ jobs:
         working-directory: ./dbt_finished_project
         run: |
           dbt deps
-          dbt source freshness --profiles-dir .
-          dbt build -s +tag:daily+ --profiles-dir .
+          dbt source freshness --profiles-dir . --target prod
+          dbt build -s +tag:daily+ --profiles-dir . --target prod
           dbt run-operation drop_old_relations
+          dbt docs generate
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: ./dbt_finished_project/target
           
