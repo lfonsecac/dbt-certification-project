@@ -41,6 +41,5 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          working-directory: ./dbt_finished_project
           target_branch: gh-pages
-          build_dir: target
+          build_dir: ./dbt_finished_project/target
