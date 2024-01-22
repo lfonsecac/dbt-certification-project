@@ -40,14 +40,14 @@ You can check [dbt docs](https://docs.getdbt.com/reference/resource-configs/seve
 
 On the last challenge we had the following tests failing:
 - accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
-- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_bayes_avg_rating
+- accepted_values_between_1_10_stg_boardgames__rankings_boardgame_bayes_avg_rating
 - accepted_values_between_1_10_stg_boardgames__reviews_review_rating
 
 You should apply the following `severity` as following:
 - accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_avg_rating
   - severity: warn
     - warn_if: ">1000"
-- accepted_values_between_1_10_stg_boardgames__boardgames_boardgame_bayes_avg_rating
+- accepted_values_between_1_10_stg_boardgames__rankings_boardgame_bayes_avg_rating
   - severity: error
     - error_if: ">20"
     - warn_if: ">1"
@@ -68,8 +68,11 @@ dbt test -s "config.materialized:view"
 dbt test -s "test_name:accepted_values_between_1_10" 
 
 # Run only the specific mdodels
-dbt test -s stg_boardgames__reviews stg_boardgames__boardgames
+dbt test -s stg_boardgames__reviews stg_boardgames__boardgames stg_boardgames__rankings
 ```
+
+**Hint**: Don't forget that you can apply the generic test by adding it as properties of dbt resources (models, sources, snapshots or seeds) of the matching `.yml` file. 
+In this scenario, we want to apply the generic test into staging models, so we should add the test as properties of the respective `.yml` file on that folder. 
 
 You should get the following 2 warnings:
 

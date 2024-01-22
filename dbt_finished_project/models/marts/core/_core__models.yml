@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: dim_users
+    description: Dimension table with users data
     tests:
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
           compare_model: source('boardgame', 'users')
@@ -11,6 +12,7 @@ models:
         tests:
           - unique
   - name: dim_artists
+    description: Dimension table with the artists names associated to their respective boardgames
     tests:
       - dbt_expectations.expect_column_distinct_count_to_equal_other_table:
           column_name: boardgame_key
