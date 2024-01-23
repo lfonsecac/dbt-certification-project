@@ -44,8 +44,13 @@ models:
   dbt_certification_project:
     staging:
       +materialzied: view
+      +tags: 
+        - "staging"
+        - "static"
     intermediate:
       +materiazlied: ephemeral
+      +tags: 
+        - "intermediate"
 
 seeds:
   dbt_certification_project:
@@ -53,3 +58,5 @@ seeds:
       country_name: varchar(100)
       country_code: varchar(3)
     +schema: seeds
+    +tags: 
+      - "seed"

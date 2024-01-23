@@ -8,6 +8,7 @@
 
       strategy='timestamp',
       updated_at='"updated_at"',
+      tags='daily'
     )
 }}
 
