@@ -51,6 +51,10 @@ models:
       +materiazlied: ephemeral
       +tags: 
         - "intermediate"
+    marts:
+      +materialized: table
+      +tags:
+        - "mart"
 
 seeds:
   dbt_certification_project:

@@ -9,7 +9,7 @@ transformed as (
         case
             when Mechanics = '0' then '{{ var("unknown") }}'
             else Mechanics
-        end as mechanich_name,
+        end as mechanic_name,
 
         Game_Id as mechanic_game_id
     from source

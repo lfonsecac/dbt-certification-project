@@ -10,7 +10,8 @@ source as (
 
 transformed as (
     select
-        Id as ranking_id,
+        {{ dbt_utils.generate_surrogate_key(['Id', "'Rank'", "'updated_at'"]) }} as ranking_key,
+        Id as boardgame_id,
         "Name" as boardgame_name,
         "Year" as boardgame_year_published,
         "Rank" as boardgame_rank,
