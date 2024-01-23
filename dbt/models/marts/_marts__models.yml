@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: fct_reviews
+    description: '{{ doc("review_rating") }}'
     columns:
       - name: review_key
         tests:
