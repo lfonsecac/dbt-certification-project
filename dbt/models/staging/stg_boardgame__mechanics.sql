@@ -6,7 +6,11 @@ source as (
 
 transformed as (
     select
-        Mechanics as mechanich_name,
+        case
+            when Mechanics = '0' then '{{ var("unknown") }}'
+            else Mechanics
+        end as mechanich_name,
+
         Game_Id as mechanic_game_id
     from source
 )

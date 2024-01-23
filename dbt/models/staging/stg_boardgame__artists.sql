@@ -6,8 +6,13 @@ source as (
 
 transformed as (
     select
-        Artists as artist_name,
+        case
+            when Artists = '0' then '{{ var("unknown") }}'
+            else Artists
+        end as artist_name,
+
         Game_Id as artist_game_id
+
     from source
 )
 

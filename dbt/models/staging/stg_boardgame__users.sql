@@ -10,7 +10,7 @@ transformed as (
         Url as user_url,
         case 
             when Country is null or Country = 'NA'
-            then 'Uknown'
+            then '{{ var("unknown") }}'
             else Country
         end as user_country
     from source

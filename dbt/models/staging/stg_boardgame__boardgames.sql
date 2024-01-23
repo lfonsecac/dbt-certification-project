@@ -16,16 +16,16 @@ transformed as (
         
         cast(
             case
-                when Rating = 'nan' then 1
-                when Rating < 1 then 1
+                when Rating = 'nan' then {{ var('number_unknown') }}
+                when Rating < 1 then {{ var('number_unknown') }}
                 else Rating
             end as float
         ) as boardgame_avg_rating,
 
         cast(
             case
-                when Weight = 'nan' then 1
-                when Weight < 1 then 1
+                when Weight = 'nan' then {{ var('number_unknown') }}
+                when Weight < 1 then {{ var('number_unknown') }}
                 else Weight
             end as float
         ) as boardgame_avg_weight,
@@ -33,27 +33,27 @@ transformed as (
         Year_published as boardgame_year_published,
 
         case
-            when Min_Players = 0 then 1
+            when Min_Players = 0 then {{ var('min_accepted_num') }}
             else Min_Players
         end as boardgame_min_players,
 
         case
-            when Max_Players = 0 then 1
+            when Max_Players = 0 then {{ var('min_accepted_num') }}
             else Max_Players
         end as boardgame_max_players,
 
         case
-            when Min_Play_Time = 0 then 1
+            when Min_Play_Time = 0 then {{ var('min_accepted_num') }}
             else Min_Play_Time
         end as boardgame_min_play_time,
 
         case
-            when Max_Play_Time = 0 then 1
+            when Max_Play_Time = 0 then {{ var('min_accepted_num') }}
             else Max_Play_Time
         end as boardgame_max_play_time,
 
         case
-            when Min_Age = 0 then 1
+            when Min_Age = 0 then {{ var('min_accepted_num') }}
             else Min_Age
         end as boardgame_min_age,
 

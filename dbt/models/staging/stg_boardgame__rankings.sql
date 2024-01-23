@@ -13,14 +13,14 @@ transformed as (
         
         cast(
             case 
-                when "Average" < 1 then 1
+                when "Average" < 1 then {{ var('min_accepted_num') }}
                 else "Average"
             end as float
         ) as boardgame_avg_rating,
 
         cast(
             case
-                when "Bayes average" < 1 then 1
+                when "Bayes average" < 1 then {{ var('min_accepted_num') }}
                 else "Bayes average"
             end as float
         ) as boardgame_bayes_avg_rating,
