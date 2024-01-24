@@ -18,6 +18,7 @@ Now that the issue with `review_rating` and `boardgame_bayes_avg_rating` is solv
 ### Solution
 
 - [stg_boardgames__reviews.sql](./staging/stg_boardgames__reviews.sql)
+- [stg_boardgames__rankings.sql](./staging/stg_boardgames__rankings.sql)
 - [_boardgames__models.yml](./staging/_boardgames__models.yml)
 
 ---
