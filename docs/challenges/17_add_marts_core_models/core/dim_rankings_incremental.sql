@@ -17,7 +17,7 @@ rankings as (
 
 dim_rankings as (
     select
-        ranking_key,
+        {{ dbt_utils.generate_surrogate_key(['boardgame_rank', 'rankings.boardgame_id', 'updated_at']) }} as ranking_key,
         {{ dbt_utils.generate_surrogate_key(['rankings.boardgame_id']) }} as boardgame_key,
         boardgame_rank,
         boardgame_total_reviews,
