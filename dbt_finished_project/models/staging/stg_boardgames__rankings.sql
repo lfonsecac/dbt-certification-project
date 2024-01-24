@@ -13,7 +13,6 @@ rankings as (
 final as (
 
     select
-        dbt_scd_id as ranking_key,
         id as boardgame_id,
         "Name" as boardgame_name,
         "Year" as boardgame_year_published,
