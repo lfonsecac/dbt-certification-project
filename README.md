@@ -110,11 +110,19 @@ Open a Terminal. If you haven't already, [setup your terminal](https://hakkoda.a
 # Generate the SSH key
 # NOTE: 
 #  * Update your email address before running the keygen command
-#  * Generate the passphrase in Bitwarden and save as something like 
-#    "LaptopSSHKey". You will need to provide this passphrase every time 
-#    you need to unlock your SSH key
-ssh-keygen -t ed25519 -C "your_email@hakkoda.io"
 
+ssh-keygen -t ed25519 -C "your_email@hakkoda.io"
+```
+
+Check the example below on how to adjust the above command to your e-mail account.
+
+When asked to enter file in which to save the key just hit **Enter** on your keyboard to accept to save on the suggested file. If it already exists, it will ask if you want to overwrite.
+
+![SSH-Keys](/docs/images/ssh-keys.png)
+
+When asked to *Enter passphrase* you can use Bitwarden to generate the passphrase and save as something like `LaptopSSHKey`. You will need to provide this passphrase every time you need to unlock your SSH key
+
+```bash
 # Add your SSH key to the ssh-agent
 eval "$(ssh-agent -s)"
 
