@@ -49,9 +49,9 @@ This is the expected result:
 09:32:28  All checks passed!
 ```
 
-To find out more information about `debug` clik [here](https://docs.getdbt.com/reference/commands/debug) to access dbt documentation for more details.
+To find out more information about `debug` click [here](https://docs.getdbt.com/reference/commands/debug) to access dbt documentation for more details.
 
-To find out more information about `connection profiles` clik [here](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles) to access dbt documentation for more details.
+To find out more information about `connection profiles` click [here](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles) to access dbt documentation for more details.
 
 ### Troubleshooting
 If you have get an error like the one below when running `dbt debug`
