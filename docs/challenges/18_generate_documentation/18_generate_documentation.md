@@ -17,9 +17,25 @@ You can generate a documentation site for your project (with or without descript
 
 First, run `dbt docs generate` - this command tells dbt to compile relevant information about your dbt project and warehouse into `manifest.json` and `catalog.json` files respectively.
 
+The command is responsible for generating your project's documentation website by
+
+1. Copying the website `index.html` file into the `target/` directory
+1. Compiling the resources in your project, so that their `compiled_code` will be included in `manifest.json`
+1. Running queries against database metadata to produce the `catalog.json` file, which contains metadata about the tables and views produced by the models in your project.
+
+### Additional arguments
+Use the `--no-compile` argument to skip re-compilation. When this flag is provided, dbt docs generate will skip step (2) described above.
+
+```bash
+dbt docs generate --no-compile
+```
+
+Use the `--empty-catalog` argument to skip running the database queries to populate catalog.json. When this flag is provided, dbt docs generate will skip step (3) described above.
+
 **Note:** To see documentation for all columns and not just columns described in your project, ensure that you have created the models with `dbt run` beforehand.
 
 Then, run `dbt docs serve` to use these .json files to populate a local website.
+
 
 ## Using Docs Blocks
 To declare a docs block, use the jinja `docs` tag. Docs blocks can contain arbitrary markdown, but they must be uniquely named. Their names may contain uppercase and lowercase letters (A-Z, a-z), digits (0-9), and underscores (_), but can't start with a digit.
@@ -70,6 +86,12 @@ Create a `_marts__docs.md` with the following description for the `review_rating
 
 [User rating definition](https://boardgamegeek.com/wiki/page/ratings)
 
+After running the associated models, execute the commands:
+```bash
+dbt docs generate
+
+dbt docs serve
+```
 
 You can check [dbt docs](https://docs.getdbt.com/docs/collaborate/documentation) for more details about documentation.
 
