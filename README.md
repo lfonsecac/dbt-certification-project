@@ -38,6 +38,15 @@ To do that the company relies on your expertise to perform insights on the datas
 
 ![Data Architecture](./docs/images/dbt_certification_project_architecture.png)
 
+
+**Components:**
+- [Snowflake L&D Sandbox](https://jsa18243.snowflakecomputing.com)
+   - Sign in using OKTA SSO
+- [GitHub Project Repository](https://github.com/Hakkoda1/dbt-certification-project)
+- **Data Sources:**
+  - [Google Drive](https://drive.google.com/drive/folders/1bPY5YzS8G94SX6kMfo8ZqUAoxGSvfGUT?usp=sharing)
+  - [GitHub Public Repo](https://github.com/beefsack/bgg-ranking-historicals)
+
 ### Data Model
 
 #### Raw Layer
